@@ -1,0 +1,11 @@
+s_select_polystar    = bhv_act_selector_star_type_loop
+HiscoreStarSet       = render_100_coin_star
+s_CoStarmain_init    = bhv_act_selector_init
+s_CoStar_main        = bhv_act_selector_loop
+DrawCoursePicture    = print_course_number
+StarSelectScene      = print_act_selector_strings
+StarSelectSceneProc  = geo_act_selector_strings
+SeStarSelectInitProc = lvl_init_act_selector_values_and_stars
+SeStarSelectProcess  = lvl_update_obj_and_load_act_button_actions
+
+

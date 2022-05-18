@@ -1,0 +1,127 @@
+- screen_transition.c: [wipe2.c]
+  set_and_reset_transition_fade_timer                = [s] IncWipeCounter
+  set_transition_color_fade_alpha                    = [s] WipeChangeAlpha
+  vertex_transition_color                            = [s] FadeInOutSetVtxData
+  dl_transition_color                                = [s] FadeCommonRoutine
+  render_fade_transition_from_color                  = [s] FadeIn
+  render_fade_transition_into_color                  = [s] FadeOut
+  calc_tex_transition_radius                         = [s] WindowCalcCurrentSide
+  calc_tex_transition_time                           = [s] WindowCalcCurrentUnit
+  convert_tex_transition_angle_to_pos                = [s] WindowCalcSita
+  center_tex_transition_x                            = [s] WindowCalcCurrentXo
+  center_tex_transition_y                            = [s] WindowCalcCurrentYo
+  make_tex_transition_vertex                         = [s] WindowCalcAndSetVtx
+  load_tex_transition_vertex                         = [s] WindowSetVtx
+  render_textured_transition                         = [s] WindowOpenClose
+  render_screen_transition                           = Wipe
+  render_cannon_circle_base                          = [s] CannonEdgeMakeDL
+  geo_cannon_circle_base                             = CannonEdge
+
+- shadow.c: [shade.c]
+  rotate_rectangle                                   = [s] ShadeRotateConv
+  atan2_deg                                          = [s] ShadeArcTan
+  scale_shadow_with_distance                         = [s] ShadeDecideOneSide
+  disable_shadow_with_distance                       = [s] ShadeDecideOneSideZero
+  dim_shadow_with_distance                           = [s] ShadeDecideDensity
+  get_water_level_below_shadow                       = [s] ShadeWaterCheck
+  init_shadow                                        = [s] ShadeSetStructureData
+  get_texture_coords_9_vertices                      = [s] ShadeCalcTexCoord_9P
+  get_texture_coords_4_vertices                      = [s] ShadeCalcTexCoord_4P
+  make_shadow_vertex_at_xyz                          = [s] ShadeSetEachVtxData
+  extrapolate_vertex_y_position                      = [s] ShadeRecalc_y_glb
+  get_vertex_coords                                  = [s] ShadeCalcDevideParam
+  calculate_vertex_xyz                               = [s] ShadeCalcXYZCoord
+  floor_local_tilt                                   = [s] ShadeCheckTwoPoint
+  make_shadow_vertex                                 = [s] ShadeSetVtxData
+  add_shadow_to_display_list                         = [s] ShadeMakeDL
+  linearly_interpolate_solidity_positive             = [s] ShadePlayerDensUp
+  linearly_interpolate_solidity_negative             = [s] ShadePlayerDensDw
+  correct_shadow_solidity_for_animations             = [s] ShadeCheckPlayerStatus
+  correct_lava_shadow_height                         = [s] Shade_Mario_Patch
+  create_shadow_player                               = [s] Shade_Mario_Luigi
+  create_shadow_circle_9_verts                       = [s] Shade_Normal_9Pnt
+  create_shadow_circle_4_verts                       = [s] Shade_Silent_Bank
+  create_shadow_circle_assuming_flat_ground          = [s] Shade_Silent_Flat
+  create_shadow_rectangle                            = [s] Shade_Square_Comn
+  get_shadow_height_solidity                         = [s] Shade_Square_Wcheck
+  create_shadow_square                               = [s] Shade_Square_Flat
+  create_shadow_hardcoded_rectangle                  = [s] Shade_Rectng_Flat
+  create_shadow_below_xyz                            = ShadeDrawFunc
+
+- skybox.c: [bgdraw3.c]
+  calculate_skybox_scaled_x                          = [s] BGCalcWfandXo
+  calculate_skybox_scaled_y                          = [s] BGCalcHfandYo
+  [s] get_top_left_tile_idx                          = [s] BGGetStartNumber
+  make_skybox_rect                                   = [s] BGSetVertexData
+  draw_skybox_tile_grid                              = [s] BG_g_DrawBG
+  create_skybox_ortho_matrix                         = [s] BGMakeOrthoMatrix
+  init_skybox_display_list                           = [s] BGMakeDisplayList
+  create_skybox_facing_camera                        = BGDrawFunc
+
+- moving_texture.c: [water.c]
+  geo_wdw_set_initial_water_level                    = WaterPoolHeight
+  geo_movtex_pause_control                           = WaterInit
+  movtex_make_quad_vertex                            = [s] WaterSetVtx
+  movtex_gen_from_quad                               = [s] WaterOneRectangle
+  movtex_gen_from_quad_array                         = [s] WaterOneSurface
+  movtex_gen_quads_id                                = [s] WaterSurface
+  get_quad_collection_from_id                        = [s] WaterGetDataPtr
+  movtex_change_texture_format                       = [s] WaterInitGfx
+  geo_movtex_draw_water_regions                      = WaterDraw
+  update_moving_texture_offset                       = [s] TexAnimSetSpeed
+  movtex_write_vertex_first                          = [s] TexAnimSetPointO
+  movtex_write_vertex_index                          = [s] TexAnimSetPointX
+  movtex_gen_list                                    = [s] TexAnimMake
+  geo_movtex_draw_nocolor                            = WaterFall
+  geo_movtex_draw_colored                            = WaterFall_L
+  geo_movtex_draw_colored_no_update                  = BeltConv_L
+  geo_movtex_draw_colored_2_no_update                = SandCone
+  geo_movtex_update_horizontal                       = SandConeInit
+
+- geo_misc:c [tutil.c]
+  make_vertex                                        = Tani_SetOneVtxData
+  round_float                                        = Tani_RoundOff
+  geo_exec_inside_castle_light                       = SelRoomEffect
+  geo_exec_flying_carpet_timer_update                = ArajinInit
+  geo_exec_flying_carpet_create                      = ArajinWave
+  geo_exec_cake_end_screen                           = EndingBGDraw
+
+- paintings:c [wave.c]
+  stop_other_paintings                               = [s] WaveClearOtherWaveSW
+  painting_mario_y                                   = [s] WaveDecideYo_Mh
+  painting_mario_z                                   = [s] WaveDecideYo_Mz
+  painting_ripple_y                                  = [s] WaveDecideYo
+  painting_nearest_4th                               = [s] WaveDecideXo_LMRSwitch
+  painting_mario_x                                   = [s] WaveDecideXo_MxCompare
+  painting_ripple_x                                  = [s] WaveDecideXo
+  painting_state                                     = [s] WaveSetWave
+  wall_painting_proximity_idle                       = [s] WaveSW0TrigCheck_A
+  wall_painting_proximity_rippling                   = [s] WaveSW1TrigCheck_A
+  wall_painting_continuous_idle                      = [s] WaveSW0TrigCheck_B
+  wall_painting_continuous_rippling                  = [s] WaveSW1TrigCheck_B
+  floor_painting_proximity_idle                      = [s] WaveSW0TrigCheck_C
+  floor_painting_proximity_rippling                  = [s] WaveSW1TrigCheck_C
+  floor_painting_continuous_idle                     = [s] WaveSW0TrigCheck_D
+  floor_painting_continuous_rippling                 = [s] WaveSW1TrigCheck_D
+  painting_update_floors                             = [s] WaveBitSWSet
+  painting_update_ripple_state                       = [s] WaveChangeAT
+  calculate_ripple_at_point                          = [s] WaveEquation
+  ripple_if_movable                                  = [s] WaveCalcZCoord
+  painting_generate_mesh                             = [s] WaveSetPointCoorddat
+  painting_calculate_triangle_normals                = [s] WaveSetPolygonNormal
+  normalize_component                                = [s] WaveFloatToChar
+  painting_average_vertex_normals                    = [s] WaveSetPointNormalVc
+  render_painting                                    = [s] WaveMakeDL
+  painting_model_view_transform                      = [s] WaveMakeDLMatrix
+  painting_ripple_image                              = [s] WaveMovingNormal
+  painting_ripple_env_mapped                         = [s] WaveMovingEnvmap
+  display_painting_rippling                          = [s] WaveDrawMoving
+  display_painting_not_rippling                      = [s] WaveDrawSteady
+  reset_painting                                     = [s] WaveResetBitSW
+  move_ddd_painting                                  = [s] WaveSpecialEffect
+  set_painting_layer                                 = [s] WaveSetRenderMode
+  display_painting                                   = [s] WaveMakeDrawingDL
+  wall_painting_update                               = [s] WaveHitCheckVerticalWall
+  floor_painting_update                              = [s] WaveHitCheckHorizontWall
+  geo_painting_draw                                  = WaveMove
+  geo_painting_update                                = WaveInit

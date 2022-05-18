@@ -1,0 +1,187 @@
+- crash_screen.c: [debug.c]
+  gCrashScreenCharToGlyph                            = [s] asciiTable
+  gCrashScreenFont                                   = [s] fontData
+  gCauseDesc                                         = [s] cpuExceptions
+  gFpcsrDesc                                         = [s] fpuExceptions
+
+- main.c: [system.c]
+  gVblankHandler1                                    = [s] audioClient
+  gVblankHandler2                                    = [s] graphClient
+  gActiveSPTask                                      = [s] scCurrentTask
+  sCurrentAudioSPTask                                = [s] scAudioTask
+  sCurrentDisplaySPTask                              = [s] scGraphTask
+  sNextAudioSPTask                                   = [s] scAudioNext
+  sNextDisplaySPTask                                 = [s] scGraphNext
+  sAudioEnabled                                      = [s] audioSwitch
+  gNumVblanks                                        = videoFrame
+  gResetTimer                                        = sysHardwareReset
+  gNmiResetBarsTimer                                 = sysWipeCounter
+  gDebugLevelSelect                                  = sysDebugFlag
+  D_8032C650                                         = sysGvdActive
+  gShowProfiler                                      = sysProcessMeter
+  gShowDebugText                                     = sysDebugMessage
+  [s] sProfilerKeySequence                           = processMeterKey
+  [s] sDebugTextKeySequence                          = debugMessageKey
+  [s] sProfilerKey                                   = [s] meter
+  [s] sDebugTextKey                                  = [s] message
+
+- game_init.c: [gfxmain.c]
+  [s] sUnusedGameInitValue                           = [s] sound_debug
+  gGlobalTimer                                       = frameCounter
+  sRenderedFramebuffer                               = dispFrame
+  sRenderingFrameBuffer                              = drawFrame
+  gGoddardVblankCallback                             = rdpdoneProc
+  gPlayer1Controller                                 = cont1p
+  gPlayer2Controller                                 = cont2p
+  gPlayer3Controller                                 = contOr
+  gCurrDemoInput                                     = autoDemoPtr
+  gDemoInputListID                                   = demoIndexNo
+  gRecordedDemoInput                                 = [s] data
+
+- sound_init.c: [audmain.c]
+  [s] sMusicVolume                                   = [s] audMusicMute
+  [s] sBgMusicDisabled                               = [s] audSoundMute
+  [s] sCurrentMusic                                  = [s] audStageMusic
+  [s] sCurrentShellMusic                             = [s] audSkateMusic
+  [s] sCurrentCapMusic                               = [s] audSpecialMusic
+  [s] sPlayingInfiniteStairs                         = [s] audUnlimitedMusic
+  [s] unused8032C6D8                                 = [s] levelSoundSwitch
+  ? (0x20)                                           = [s] levelSoundFlags
+  [s] sSoundMenuModeToSoundMode                      = [s] audSoundMode
+  [s] sMenuSoundsExtra                               = [s] levelSoundCodes
+  [s] sPaintingEjectSoundPlayed                      = [s] pictWaving
+
+- rumble_init.c: [mtrmain.c]
+  sRumblePakThreadActive                             = [s] motorActive
+  sRumblePakActive                                   = [s] motorPackOk
+  sRumblePakErrorCount                               = [s] motorError
+  gRumblePakTimer                                    = motorCounter
+
+- level_update.c: [game.c]
+  credits01                                          = [s] staff_01
+  credits02                                          = [s] staff_02
+  credits03                                          = [s] staff_03
+  credits04                                          = [s] staff_04
+  credits05                                          = [s] staff_05
+  credits06                                          = [s] staff_06
+  credits07                                          = [s] staff_07
+  credits08                                          = [s] staff_08
+  credits09                                          = [s] staff_09
+  credits10                                          = [s] staff_10
+  credits11                                          = [s] staff_11
+  credits12                                          = [s] staff_12
+  credits13                                          = [s] staff_13
+  credits14                                          = [s] staff_14
+  credits15                                          = [s] staff_15
+  credits16                                          = [s] staff_16
+  credits17                                          = [s] staff_17
+  credits18                                          = [s] staff_18
+  credits19                                          = [s] staff_19
+  credits20                                          = [s] staff_20
+  sCreditsSequence                                   = [s] endingSceneList
+  gMarioState                                        = marioWorks
+  unused1                                            = [s] currentCourse
+  sWarpCheckpointActive                              = [s] middlePointSw
+
+- interaction.c: [collision.c]
+  [s] sInteractionHandlers                           = [s] hitNameList
+  [s] sForwardKnockbackActions                       = [s] foreDownProcs
+  [s] sBackwardKnockbackActions                      = [s] backDownProcs
+  [s] sDisplayingDoorText                            = [s] doorMessage
+  [s] sJustTeleported                                = [s] warpZone
+  [s] sPssSlideStarted                               = [s] sliderRacing
+
+- mario.c: [player.c]
+  sTerrainSounds                                     = [s] groundCondition
+  sSquishScaleOverTime                               = [s] grow
+  sCapFlickerFrames                                  = [s] flashmask
+
+- mario_step.c [physics.c]
+  [s] sMovingSandSpeeds                              = [s] quicksandCurrent
+  gWaterSurfacePseudoFloor                           = skatingWaterSurface
+  ? (0x38)                                           = [s] trampStatus       # gWaterSurfacePseudoFloor should be in seperate
+  ? (0x3c)                                           = [s] trampJpFlag
+
+- mario_actions_cutscene.c: [autodemo.c]
+  [s] sEndCutsceneVp                                 = [s] viewport
+  [s] sDispCreditsEntry                              = [s] staffRollPtr
+  [s] D_8032CBE4                                     = [s] peachEye
+  [s] D_8032CBE8                                     = [s] peachLip
+  [s] D_8032CBEC                                     = [s] eyeBlink
+  [s] sStarsNeededForDialog                          = [s] numstars
+  [s] sJumboStarKeyframes                            = [s] endingFlight
+  [s] sSparkleGenTheta                               = [s] angx
+  [s] sSparkleGenPhi                                 = [s] angy
+  [s] sMarioBlinkOverride                            = [s] marioEye
+
+- mario_actions_moving.c: [running.c]
+  sJumpLandAction                                    = [s] param     # hmmm.... it must be in static function scope
+  sFreefallLandAction                                = [s] param
+  sSideFlipLandAction                                = [s] param
+  sHoldJumpLandAction                                = [s] param
+  sHoldFreefallLandAction                            = [s] param
+  sLongJumpLandAction                                = [s] param
+  sDoubleJumpLandAction                              = [s] param
+  sTripleJumpLandAction                              = [s] param
+  sBackflipLandAction                                = [s] param
+
+- mario_actions_submerged.c: [swimming.c]
+  [s] sWasAtSurface                                  = [s] faceupFlag
+  [s] sSwimStrength                                  = [s] swimMaxSpeed
+  [s] sWaterCurrentSpeeds                            = [s] waterCurrent
+
+- mario_actions_object.c: [action.c]
+  sPunchingForwardVelocities                         = [s] velocity
+
+- mario_misc.c: [callback.c]
+  [s] gMarioBlinkAnimation                           = [s] eyeBlink
+  [s] gMarioAttackScaleAnimation                     = [s] handScaleTable
+  [s] sMarioAttackAnimCounter                        = [s] timestamp
+
+- memory.c: [memory.c]
+  [s] gMainPoolState                                 = [s] memoryFrame
+
+- save_file.c: [backup.c]
+  gLastCompletedCourseNum                            = buLastBackupCourseNo
+  gLastCompletedStarNum                              = buLastBackupStarNo
+  sUnusedGotGlobalCoinHiScore                        = buLastBackupHiScore
+  gGotFileCoinHiScore                                = buLastBackupMyHiScore
+  gCurrCourseStarFlags                               = buStartingStarFlag
+  gSpecialTripleJump                                 = buYosshiJump
+  gLevelToCourseNumTable                             = buCourseTable
+
+- area.c: [scene.c]
+  gMarioSpawnInfo                                    = marioActor
+  gLoadedGraphNodes                                  = stageShapes
+  gAreas                                             = stageScenes
+  gCurrentArea                                       = snSceneInfo
+  gCurrCreditsEntry                                  = snEndingScene
+  D_8032CE74                                         = [s] snViewPort
+  D_8032CE78                                         = [s] snTrimming
+  gWarpTransDelay                                    = [s] faderDelay
+  gFBSetColor                                        = [s] backColor
+  gWarpTransFBSetColor                               = [s] blankColor
+  gWarpTransRed                                      = [s] blankColorR
+  gWarpTransGreen                                    = [s] blankColorG
+  gWarpTransBlue                                     = [s] blankColorB
+  gCurrSaveFileNum                                   = activePlayerNo
+  gCurrLevelNum                                      = activeStageNo
+  sWarpBhvSpawnTable                                 = [s] pathNameList
+  sSpawnTypeFromWarpBhv                              = [s] portNameList
+  D_8032CF00                                         = [s] viewport
+
+- rendering_graph_node.c: [hmsdraw.c]
+  renderModeTable_1Cycle                             = [s] renderMode1
+  renderModeTable_2Cycle                             = [s] renderMode2
+  gCurGraphNodeRoot                                  = hmsActiveScene
+  gCurGraphNodeMasterList                            = hmsActiveLayer
+  gCurGraphNodeCamFrustum                            = hmsActivePersp
+  gCurGraphNodeCamera                                = hmsActiveCamera
+  gCurGraphNodeObject                                = hmsActiveShape
+  gCurGraphNodeHeldObject                            = hmsActiveSucker
+  gAreaUpdateCounter                                 = animationCounter
+
+- profiler.c: [time.c]
+  gProfilerMode                                      = [s] meterType
+  gCurrentFrameIndex1                                = [s] sysCPUsel
+  gCurrentFrameIndex2                                = [s] sysRCPsel

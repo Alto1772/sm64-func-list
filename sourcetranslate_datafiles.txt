@@ -1,0 +1,84 @@
+map/Sboot  = levels/entry
+data/basic = bin/segment2
+
+shape/gfx_player = actors/group0
+shape/hms_player = actors/group0_geo
+
+shape/gfx_enemy1_a = actors/group1
+shape/hms_enemy1_a = actors/group1_geo
+shape/gfx_enemy1_b = actors/group2
+shape/hms_enemy1_b = actors/group2_geo
+shape/gfx_enemy1_c = actors/group3
+shape/hms_enemy1_c = actors/group3_geo
+shape/gfx_enemy1_d = actors/group4
+shape/hms_enemy1_d = actors/group4_geo
+shape/gfx_enemy1_e = actors/group5
+shape/hms_enemy1_e = actors/group5_geo
+shape/gfx_enemy1_f = actors/group6
+shape/hms_enemy1_f = actors/group6_geo
+shape/gfx_enemy1_g = actors/group7
+shape/hms_enemy1_g = actors/group7_geo
+shape/gfx_enemy1_h = actors/group8
+shape/hms_enemy1_h = actors/group8_geo
+shape/gfx_enemy1_i = actors/group9
+shape/hms_enemy1_i = actors/group9_geo
+shape/gfx_enemy1_j = actors/group10
+shape/hms_enemy1_j = actors/group10_geo
+shape/gfx_enemy1_k = actors/group11
+shape/hms_enemy1_k = actors/group11_geo
+shape/gfx_enemy2_a = actors/group12
+shape/hms_enemy2_a = actors/group12_geo
+shape/gfx_enemy2_d = actors/group13
+shape/hms_enemy2_d = actors/group13_geo
+shape/gfx_enemy2_e = actors/group14
+shape/hms_enemy2_e = actors/group14_geo
+shape/gfx_enemy2_f = actors/group15
+shape/hms_enemy2_f = actors/group15_geo
+shape/gfx_enemy2_g = actors/group16
+shape/hms_enemy2_g = actors/group16_geo
+shape/gfx_enemy2_h = actors/group17
+shape/hms_enemy2_h = actors/group17_geo
+
+shape/gfx_basic_enemy = actors/common0
+shape/hms_basic_enemy = actors/common0_geo
+shape/gfx_keep        = actors/common1
+shape/hms_keep        = actors/common1_geo
+
+map/title/Stitle = levels/intro/script
+map/title/Mtitle = levels/intro/geo
+
+map/title/nintendo_logo = levels/intro/leveldata
+map/title/debug_title   = bin/debug_level_select
+map/title/title_back    = bin/title_screen_bg
+
+map/select/Sselect = levels/menu/script
+map/select/Mselect = levels/menu/geo
+map/select/Gselect = levels/menu/leveldata
+
+map/Sgame = levels/scripts
+
+map/back/mainmap_backscrn   = textures/skyboxes/water
+map/back/snowtower_backscrn = textures/skyboxes/ccm
+map/back/kuppa_backscrn     = textures/skyboxes/clouds
+map/back/motos_backscrn     = textures/skyboxes/bitfs
+map/back/waterland_backscrn = textures/skyboxes/wdw
+map/back/mountain_backscrn  = textures/skyboxes/cloud_floor
+map/back/sabaku_backscrn    = textures/skyboxes/ssl
+map/back/bigworld_backscrn  = textures/skyboxes/bbh
+map/back/yokoscrl_backscrn  = textures/skyboxes/bidw
+map/back/kuppa3_backscrn    = textures/skyboxes/bits
+
+map/texture/a_lava_texture      = textures/fire
+map/texture/b_house_texture     = textures/spooky
+map/texture/c_field_texture     = textures/generic
+map/texture/d_water_texture     = textures/water
+map/texture/e_mt_texture        = textures/sky
+map/texture/f_show_mt_texture   = textures/snow
+map/texture/g_cave_texture      = textures/cave
+map/texture/h_mecha_texture     = textures/machine
+map/texture/i_slider_texture    = textures/mountain
+map/texture/j_fort_texture      = textures/grass
+map/texture/k_castlein_texture  = textures/outside
+map/texture/l_castleout_texture = textures/inside
+
+shape/gfx_weather = bin/effect

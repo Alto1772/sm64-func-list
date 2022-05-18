@@ -1,0 +1,159 @@
+- crash_screen.c: [debug.c]
+  gCrashScreen                                       = [s] debugger
+
+- main.c: [system.c]
+  D_80339210                                         = [s] rmonThread
+  gIdleThread                                        = [s] idleThread
+  gMainThread                                        = [s] mainThread
+  gGameLoopThread                                    = [s] graphThread
+  gSoundThread                                       = [s] audioThread
+  gDmaIoMesg                                         = dmaIOMessageBuf
+  gMainReceivedMesg                                  = dummyMessage
+  gDmaMesgQueue                                      = dmaMessageQ
+  gSIEventMesgQueue                                  = padMessageQ
+  gPIMesgQueue                                       = [s] PimMessageQ
+  gIntrMesgQueue                                     = [s] scdMessageQ
+  gSPTaskMesgQueue                                   = [s] tskMessageQ
+  gDmaMesgBuf                                        = [s] dmaMessageBuf
+  gPIMesgBuf                                         = [s] PimMessageBuf
+  gSIEventMesgBuf                                    = [s] padMessageBuf
+  gIntrMesgBuf                                       = [s] scdMessageBuf
+  gUnknownMesgBuf                                    = [s] tskMessageBuf
+
+- game_init.c: [gfxmain.c]
+  gControllers                                       = controller
+  gGfxSPTask                                         = taskPtr
+  gDisplayListHead                                   = graphPtr
+  gGfxPoolEnd                                        = blockPtr
+  gGfxPool                                           = currentDynamic
+  gControllerStatuses                                = [s] contStatus
+  gControllerPads                                    = [s] contRdData
+  gControllerBits                                    = contConnection
+  gEepromProbe                                       = eepromExists
+  gGameVblankQueue                                   = [s] rtcMessageQ
+  gGfxVblankQueue                                    = [s] rdpMessageQ
+  gGameMesgBuf                                       = [s] rtcMessageBuf
+  gGfxMesgBuf                                        = [s] rdpMessageBuf
+  gGameVblankHandler                                 = [s] gfxClient
+  gPhysicalFrameBuffers                              = [s] frameBuffer
+  gPhysicalZBuffer                                   = [s] depthBuffer
+  gMarioAnimsMemAlloc                                = [s] skelAnimBuffer
+  gDemoInputsMemAlloc                                = [s] contDataBuffer
+  gMarioAnimsBuf                                     = playerAnimation
+  gDemoInputsBuf                                     = controllerData
+  [s] sfillerGameInit                                = ? (0x118)       # wrong bss position!, this should be at sound_init.c.
+                                                                       # Devs won't mind about this change as it is unused...
+
+- sound_init.c: [audmain.c]
+  ? (0x0)                                            = [s] soundPosition   #  Expected: [s] sfillerGameInit
+  [s] unused80339DC0                                 = [s] zeroPosition
+  [s] sSoundMesgQueue                                = [s] audioMessageQ
+  [s] sSoundMesgBuf                                  = [s] audioMesgBuf
+  [s] sSoundVblankHandler                            = [s] audClient
+
+- rumble_init.c: [mtrmain.c]
+  gRumblePakThread                                   = [s] motorThread
+  gRumblePakPfs                                      = [s] pfs               # decomp src said it does not have os_pfs.h yet.
+  D_SH_8031D8F8                                      = ? (0x1b8)             # This is also included in the OSPfs struct.
+  gRumblePakSchedulerMesgBuf                         = [s] siSemaphoreBuf
+  gRumblePakSchedulerMesgQueue                       = [s] siSemaphoreQue
+  gRumbleThreadVIMesgBuf                             = [s] motorMessageBuf
+  gRumbleThreadVIMesgQueue                           = [s] motorMessageQue
+  gRumbleDataQueue                                   = [s] motorEvent
+  gCurrRumbleSettings                                = [s] motorCtrl
+
+- level_update.c: [game.c]
+  gMarioStates                                       = playerWorks
+  gHudDisplay                                        = playerMeter
+  sCurrPlayMode                                      = [s] gameProcess
+  D_80339ECA                                         = [s] gameCounter
+  sTransitionTimer                                   = [s] freezeCounter
+  sTransitionUpdate                                  = [s] freezeProcedure
+  sWarpDest                                          = [s] playerEntry
+  D_80339EE0                                         = [s] gameExitCode
+  sDelayedWarpOp                                     = [s] fadeoutMode
+  sDelayedWarpTimer                                  = [s] fadeoutCount
+  sSourceWarpNodeId                                  = [s] fadeoutPort
+  sDelayedWarpArg                                    = [s] fadeoutInfo
+  unusedEULevelUpdateBss1                            = [s] messageNo
+  sTimerRunning                                      = [s] stopWatchSw
+  gNeverEnteredCastle                                = mesgCastle
+  unused3                                            = ? (0xf8)          # ???
+  unused4                                            = ? (0xfc)
+
+- interaction.c: [collision.c]
+  sDelayInvincTimer                                  = [s] hitenemy
+  sInvulnerable                                      = [s] invincible
+
+- mario.c: [player.c]
+  unused80339F10                                     = [s] debug
+  filler80339F1C                                     = ? (0x8)           # another case of wrong bss position...
+
+- mario_step.c [physics.c]
+  ? (0x0)                                            = [s] trampPhase      # these symbols went unused so who cares?
+  ? (0x4)                                            = [s] trampPower
+  ? (0x8)                                            = [s] trampAmplitude
+
+- mario_actions_cutscene.c: [autodemo.c]
+  [s] sIntroWarpPipeObj                              = [s] dokan
+  [s] sEndPeachObj                                   = [s] peach
+  [s] sEndRightToadObj                               = [s] kinopioA
+  [s] sEndLeftToadObj                                = [s] kinopioB
+  [s] sEndJumboStarObj                               = [s] polystar
+  [s] sUnused                                        = [s] twinkle
+  [s] sEndPeachAnimation                             = [s] peachAnimeNo
+  [s] sEndToadAnims                                  = [s] kinopioAnimeNo
+
+- mario_actions_moving.c: [running.c]
+  sFloorAlignMatrix                                  = [s] matrix
+
+- mario_actions_submerged.c: [swimming.c]
+  [s] sBobTimer                                      = [s] wavePhase
+  [s] sBobIncrement                                  = [s] waveSpeed
+  [s] sBobHeight                                     = [s] waveAmplitude
+
+- mario_misc.c: [callback.c]
+  gBodyStates                                        = playerShapeCtrl
+  gMirrorMario                                       = [s] mirrorShape
+
+- memory.c: [memory.c]
+  gEffectsMemoryPool                                 = systemHeap
+  sSegmentTable                                      = [s] segmentTable
+  sPoolFreeSpace                                     = [s] fzoneSize
+  sPoolStart                                         = [s] fzoneHead
+  sPoolEnd                                           = [s] fzoneTail
+  sPoolListHeadL                                     = [s] fzoneForeptr
+  sPoolListHeadR                                     = [s] fzoneBackptr
+
+- save_file.c: [backup.c]
+  gWarpCheckpoint                                    = buRamMidPoint
+  gMainMenuDataModified                              = [s] activeHiScore
+  gSaveFileModified                                  = [s] activeStorage
+
+- area.c: [scene.c]
+  gPlayerSpawnInfos                                  = starringActor
+  D_8033A160                                         = shapeList
+  gAreaData                                          = sceneList
+  gWarpTransition                                    = wipeControl
+  gCurrCourseNum                                     = activeCourseNo
+  gCurrActNum                                        = activeLevelNo
+  gCurrAreaIndex                                     = activeSceneNo
+  gSavedCourseNum                                    = ramSaveCourse
+  gMenuOptSelectIndex                                = mesgEvent
+  gSaveOptSelectIndex                                = mesgLatch
+
+- rendering_graph_node.c: [hmsdraw.c]
+  gMatStackIndex                                     = [s] matrixSp
+  gMatStack                                          = [s] affineMatrix
+  gMatStackFixed                                     = [s] modelMatrix
+  gGeoTempState                                      = [s] animeStack
+  gCurAnimType                                       = [s] animeStatus
+  gCurAnimEnabled                                    = [s] animeShadow
+  gCurrAnimFrame                                     = [s] animeFrame
+  gCurAnimTranslationMultiplier                      = [s] animeScale
+  gCurrAnimAttribute                                 = [s] animeTable
+  gCurAnimData                                       = [s] animeParam
+  gDisplayListHeap                                   = [s] mapArena
+
+- profiler.c: [time.c]
+  gProfilerFrameData                                 = [s] sysTime

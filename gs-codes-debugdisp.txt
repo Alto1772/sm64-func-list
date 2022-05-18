@@ -1,0 +1,34 @@
+# Old debug display that prints an object's flags, uses last object spawned
+
+# thread5_game_loop [80248af0] (game_init.c:676 [0x1c80]) // SH: 8024bab4, 0x1384
+# debug_print_obj_move_flags [802cb394] (debug.c:528 [0x1024]) // SH: 802b3384, 0x0b84
+
+# this removes gShowDebugText if-condition at thread5_game_loop (game_init.c:735)
+89248BE8 0000  // SH: 8924BC04 0000
+89248BEA 0000  // SH: 8924BC06 0000
+
+# this replaces print_text_fmt_int to debug_print_obj_move_flags (params are ignored)
+89248C12 2CE5  // SH: 8924BC1A CCE1
+
+# this activates gDebugInfoFlags so it can print 
+8833D263 0001  // SH: 8831F420 0001
+
+# this removes the if-conditions for the print functions 
+812CB3AC 0000  // SH: 812B33A8 0000
+812CB3AE 0000  // SH: 812B33AA 0000
+812CB3DC 0000  // SH: 812B33C8 0000
+812CB3DE 0000  // SH: 812B33CA 0000
+812CB40C 0000  // SH: 812B33EC 0000
+812CB40E 0000  // SH: 812B33EE 0000
+812CB43C 0000  // SH: 812B3410 0000
+812CB43E 0000  // SH: 812B3412 0000
+812CB46C 0000  // SH: 812B3434 0000
+812CB46E 0000  // SH: 812B3436 0000
+812CB49C 0000  // SH: 812B3458 0000
+812CB49E 0000  // SH: 812B345A 0000
+812CB4CC 0000  // SH: 812B347C 0000
+812CB4CE 0000  // SH: 812B347E 0000
+812CB4FC 0000  // SH: 812B34A0 0000
+812CB4FE 0000  // SH: 812B34A2 0000
+812CB52C 0000  // SH: 812B34C4 0000
+812CB52E 0000  // SH: 812B34C6 0000

@@ -1,0 +1,205 @@
+=======================  DATA  =======================
+
+- object_list_processor.o: [strategy.o]
+  sObjectListUpdateOrder                             = [s] movestrategy_list
+  sParticleTypes                                     = [s] peffect
+
+- object_helpers.o: [stratlib.o]
+  [s] sBbhStairJiggleOffsets                         = [s] gatan_data
+  [s] sPowersOfTwo                                   = [s] index_bitdata
+  [s] sLevelsWithRooms                               = [s] areastage
+
+- behavior_actions.o: [alien.o]
+  [s] sCapSaveFlags                                  = [s] backup_switchtable
+  [s] sBooHitRotations                               = [s] rotdata
+  sMrIParticleActions                                = [s] balloonfire_modejmp
+  sMrIActions                                        = [s] balloon_modejmp
+  sMrIHitbox                                         = [s] balloon_hit
+  sThiTopPuffs                                       = [s] watereffect
+  sCapSwitchText                                     = [s] backup_switchmessage
+  sCapSwitchActions                                  = [s] bikkuri_modejmp
+  sKingBobombActions                                 = [s] bomking_modejmp
+  sKingBobombSoundStates                             = [s] bomking_sound
+  sOpenedCannonActions                               = [s] cannon_modejmp
+  sUnusedChuckyaData                                 = [s] carryboy_movedata
+  sChuckyaActions                                    = [s] carryboy_modejmp
+  sWFRotatingPlatformData                            = [s] rotbg_data
+  sKoopaShellUnderwaterHitbox                        = [s] catchkoura_hit
+  sMistParticles                                     = [s] burneffect
+  sSparkleSpawnStarHitbox                            = [s] tripstar_hit
+  sYellowCoinHitbox                                  = [s] coin_hit
+  sCoinArrowPositions                                = [s] allow_data
+  sCoinInsideBooActions                              = [s] obakecoin_modejmp
+  [s] sTinyTriMovementParams                         = [s] punchang
+  [s] sTinyStarMovementParams                        = [s] crashang
+  [s] sDoorActions                                   = doordata
+  [s] sDoorOpenSounds                                = [s] dooropen_sound
+  [s] sDoorCloseSounds                               = [s] doorclose_sound
+  sGrindelThwompActions                              = [s] dosun_modejmp
+  sTumblingBridgeParams                              = [s] downbar_data
+  sTumblingBridgeActions                             = [s] castle_downbar_modejmp
+  [s] sElevatorHeights                               = [s] udlift_data
+  sElevatorActions                                   = [s] udlift_l_modejmp
+  [s] sGlobalMistParticles                           = [s] playermowan_effect
+  [s] sSandParticles                                 = [s] playersand_effect
+  [s] sSmokeMovementParams                           = [s] snoweffect_data
+  [s] sSnowParticles                                 = [s] playersnow_effect
+  sUkikiCageActions                                  = [s] donky_modejmp
+  sBowserShockwaveHitPoints                          = [s] firering_hit
+  sSpindriftHitbox                                   = [s] furafura_hit
+  sMetalBoxHitbox                                    = [s] push_hit
+  sBreakableBoxHitbox                                = [s] hibiblock_hit
+  D_8032F460                                         = [s] horiage_data
+  sHeaveHoActions                                    = [s] horiage_modejmp
+  sJumpingBoxHitbox                                  = [s] jumpblock_hit
+  sJumpingBoxActions                                 = [s] jumpblock_modejmp
+  [s] sBooCageHitbox                                 = [s] kago_hit
+  [s] sBetaBooKeyActions                             = [s] keycoin_modejmp
+  sBowserKeyHitbox                                   = [s] kopakey_hit
+  sBulletBillActions                                 = [s] killer_modejmp
+  sBowserTailAnchorActions                           = [s] kopatail_modejmp
+  sBowserDebugActions                                = [s] kopamode_table
+  sBowserVelYAir                                     = [s] speed_Y_data
+  sBowserFVelAir                                     = [s] speed_F_data
+  sBowserDanceStepNoises                             = [s] punchsound_tab
+  sBowserDefeatedDialogText                          = [s] kopadead_message
+  sBowsertiltPlatformData                            = [s] kopabg_timedata
+  sBowserActions                                     = [s] kopa_modejmp
+  sBowserSoundStates                                 = [s] kopa_sound
+  sBowserRainbowLight                                = [s] initkopa_light
+  sBowserHealth                                      = [s] initkopa_hp
+  sBowserFallingPlatform                             = [s] kopa_fin_bgdata
+  sFallingBowserPlatformActions                      = [s] kopa_fin_moveBG_modejmp
+  sGrowingBowserFlameHitbox                          = [s] firehit
+  sBowserFlameHitbox                                 = [s] groundfirehit
+  sFlameFloatingYLimit                               = [s] furafura_Y_limit
+  D_8032F754                                         = [s] dlift_data
+  [s] sCageUkikiPath                                 = [s] monky_rail
+  sUkikiSoundStates                                  = [s] monky_sound
+  sUkikiActions                                      = [s] monky_modejmp
+  D_8032F860                                         = [s] ikada_data_1
+  D_8032F894                                         = [s] ikada_data_2
+  D_8032F8C8                                         = [s] ikada_select
+  sRotatingCwFireBarsActions                         = [s] firebar_modejmp
+  sKoopaShellHitbox                                  = [s] nokoboard_hit
+  D_8032F8F0                                         = [s] oni_data0
+  D_8032F924                                         = [s] oni_data1
+  D_8032F948                                         = [s] oni_data2
+  D_8032F96C                                         = [s] oni_data_table
+  sToxBoxActions                                     = [s] onimasu_modejmp
+  [s] sPiranhaPlantBiteSoundFrames                   = pakunsound
+  TablePiranhaPlantActions                           = [s] pakun_modejmp
+  [s] sPieceActions01                                = [s] datapazz00
+  [s] sPieceActions02                                = [s] datapazz01
+  [s] sPieceActions05                                = [s] datapazz04
+  [s] sPieceActions06                                = [s] datapazz05
+  [s] sPieceActions10                                = [s] datapazz09
+  [s] sPieceActions09                                = [s] datapazz08
+  [s] sPieceActions13                                = [s] datapazz12
+  [s] sPieceActions12                                = [s] datapazz11
+  [s] sPieceActions08                                = [s] datapazz07
+  [s] sPieceActions07                                = [s] datapazz06
+  [s] sPieceActions03                                = [s] datapazz02
+  [s] sPieceActions04                                = [s] datapazz03
+  [s] sPieceActions11                                = [s] datapazz10
+  [s] sPieceActions14                                = [s] datapazz13
+  [s] sBowserPuzzlePieces                            = pazz_makedata
+  sBowserPuzzlePieceActions                          = [s] pazz_modejmp
+  sTuxiesMotherActions                               = [s] ping_oya_modejmp
+  sSmallPenguinActions                               = [s] ping_kodomo_modejmp
+  [s] sFishSpawnerActions                            = [s] sakanamother_modejmp
+  [s] sFishActions                                   = [s] sakana_modejmp
+  sBirdChirpChirpActions                             = [s] pukumother_modejmp
+  sCheepCheepActions                                 = [s] puku_modejmp
+  sExclamationBoxHitbox                              = [s] itembox_hit
+  sExclamationBoxContents                            = itembox_table
+  sExclamationBoxActions                             = [s] itembox_modejmp
+  sSkullSlidingBoxHitbox                             = [s] movecube_hit
+  gOpenableGrills                                    = [s] switchdoor_data
+  sTweesterHitbox                                    = [s] tatsumaki_hit
+  sTweesterActions                                   = [s] tornedo_modejmp
+  [s] sBooGivingStarHitbox                           = [s] teresa_hit
+  [s] sCourtyardBooTripletPositions                  = [s] teredata
+  [s] sBooActions                                    = [s] oba_modejmp
+  [s] sBooGivingStarActions                          = [s] kaidanteresa_modejmp
+  [s] sBooWithCageActions                            = [s] kagoteresa_modejmp
+  sScuttlebugHitbox                                  = [s] walker_hit
+  sWhompActions                                      = [s] wallman_modejmp
+  sWaterSplashDropletParams                          = waterdive_init
+  gShallowWaterSplashDropletParams                   = splash_init
+  sWaterDropletFishParams                            = fish_init
+  gShallowWaterWaveDropletParams                     = small_splash_init
+  sStrongWindParticleHitbox                          = [s] wind_hit
+  sSLWalkingPenguinErraticSteps                      = [s] wind_ping_data
+
+- platform_displacement.o: [bgmove.o]
+  D_8032FEC0                                         = [s] ride_player  # this might be probably a struct as
+  unused_8032FEC4                                    = ? (0x4)          # there are these two unused entries
+  gMarioPlatform                                     = ? (0x14)         # and only this last one is used
+
+- debug.o: [ydebug.o]
+  sDebugEffectStringInfo                             = [s] effect_name
+  sDebugEnemyStringInfo                              = [s] enemy_name
+  sDebugInfoDPadMask                                 = [s] auto_trigger
+  sDebugInfoDPadUpdID                                = [s] yjdebug_keytimer
+  sDebugLvSelectCheckFlag                            = [s] yjdebug_init
+  sDebugPage                                         = [s] yjdebug_mode
+  sNoExtraDebug                                      = [s] yjdebug_disp
+  sDebugStringArrPrinted                             = [s] keydebug_flag
+  sDebugSysCursor                                    = [s] keydebug_cursor
+  sDebugInfoButtonSeqID                              = [s] debug_keycount
+  sDebugInfoButtonSeq                                = [s] debug_command
+
+=======================  BSS   =======================
+
+- object_list_processor.o: [strategy.o]
+  gDebugInfoFlags                                    = debugflag
+  gNumFindFloorMisses                                = DBF_BGnull
+  unused_8033BEF8                                    = DBF_roofnull
+  gUnknownWallCount                                  = DBF_wall
+  gObjectCounter                                     = DBF_objcount
+  gNumCalls                                          = bgdebuginfo
+  gDebugInfo                                         = yd_work
+  gDebugInfoOverwrite                                = yd_init
+  gTimeStopState                                     = strategy_mainflag
+  gObjectPool                                        = strategy
+  gMacroObjectDefaultParent                          = dmmy
+  gObjectLists                                       = stratroot
+  gFreeObjectList                                    = stratfree
+  gMarioObject                                       = player1stp
+  gLuigiObject                                       = player2stp
+  gCurrentObject                                     = execstp
+  gCurBhvCommand                                     = path
+  gPrevFrameObjectCount                              = beforeframe_objcount
+  gSurfaceNodesAllocated                             = bgcheck_listNo
+  gSurfacesAllocated                                 = bgcheck_dataNo
+  gNumStaticSurfaceNodes                             = bgcheck_listEND
+  gNumStaticSurfaces                                 = bgcheck_dataEND
+  gObjectMemoryPool                                  = stratheap
+  gCheckingSurfaceCollisionsForCamera                = camera_bgflag
+  gFindFloorIncludeSurfaceIntangible                 = bgcheck_nukiflag
+  gEnvironmentRegions                                = waterline
+  gEnvironmentLevels                                 = waterline_basic
+  gDoorAdjacentRooms                                 = map_areaenemy
+  gMarioCurrentRoom                                  = map_areacode
+  D_8035FEE2                                         = area_coin
+  D_8035FEE4                                         = area_door
+  gTHIWaterDrained                                   = object_courseflag
+  gTTCSpeedSetting                                   = stage_objparameter
+  gMarioShotFromCannon                               = cannon_useflag
+  gCCMEnteredSlide                                   = course_ramsave_flag
+  gNumRoomedObjectsInMarioRoom                       = areain_obj
+  gNumRoomedObjectsNotInMarioRoom                    = areaout_obj
+  gWDWWaterLevelChanging                             = waterswitch_flag
+  gMarioOnMerryGoRound                               = bf_teresa_flag
+  gObjectListArray                                   = [s] slist_buffer
+
+- object_helpers.o: [stratlib.o]
+  [s] grabReleaseState                               = [s] key_gacha_work
+
+- behavior_actions.o: [alien.o]
+  [s] D_8035FF10                                     = [s] starangle
+
+- debug.o: [ydebug.o]
+  gDebugPrintState1                                  = [s] disprint
+  gDebugPrintState2                                  = [s] errprint

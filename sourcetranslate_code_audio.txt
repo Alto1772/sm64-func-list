@@ -1,0 +1,309 @@
++ synthesis.c (size: 0x28e0): [driver.c]
+ - [./Driver/cpufxB.m]
+    prepare_reverb_ring_buffer        = (static) [Nas_CpuFX]
+ - [./Driver/driverF.2.m]
+    synthesis_load_reverb_ring_buffer = (static) [__LoadAuxBuf]
+    synthesis_save_reverb_ring_buffer = (static) [__SaveAuxBuf]
+    func_sh_802ed644                  = (static) [__Nas_WaveTerminateProcess]
+    synthesis_load_note_subs_eu       = (static) [__Nas_PushDrvReg]
+    synthesis_execute                 = Nas_smzAudioFrame
+    synthesis_resample_and_mix_reverb = (static) [Nas_LoadAuxBuffer]
+    synthesis_load_reverb_samples     = (static) [Nas_LoadAux2nd]
+    synthesis_save_reverb_samples     = (static) [Nas_SaveAuxBuffer]
+    func_sh_802EDF24                  = (static) [Nas_SaveAux2nd]
+    synthesis_do_one_audio_update     = (static) [Nas_DriveRsp]
+    synthesis_process_note            = (static) [Nas_SynthMain]
+    load_wave_samples                 = (static) [Nas_Synth_WaveMemory]
+    final_resample                    = (static) [Nas_Synth_Resample]
+    process_envelope                  = (static) [Nas_Synth_Envelope]
+    note_apply_headset_pan_effects    = (static) [Nas_Synth_Delay]
+
++ heap.c (size: 0x5370): [memory.c]
+ - [./Memory/idcheck.m]
+    reset_bank_and_seq_load_status    = (static) [Nas_ResetIDtable]
+    discard_bank                      = Nas_ForceStopChannel
+    discard_sequence                  = (static) [Nas_ForceStopSeq]
+ - [./Memory/memory3.m]
+    soundAlloc                        = Nas_HeapAlloc_CL
+    sound_alloc_uninitialized         = Nas_HeapAlloc
+    sound_alloc_pool_init             = Nas_HeapInit
+    persistent_pool_clear             = Nas_SzStayClear
+    temporary_pool_clear              = Nas_SzAutoClear
+    unused_803160F8                   = Nas_SzCustomClear
+    sound_init_main_pools             = Nas_SzHeapReset
+    session_pools_init                = Nas_SzHeapDivide
+    seq_and_bank_pool_init            = Nas_SzDataDivide
+    persistent_pools_init             = Nas_SzStayDivide
+    temporary_pools_init              = Nas_SzAutoDivide
+    alloc_bank_or_seq                 = Nas_SzHeapAlloc
+    get_bank_or_seq                   = Nas_SzCacheCheck
+    get_bank_or_seq_inner             = (static) [__Nas_SzCacheCheck_Inner]
+ - [./Memory/filter.m]
+    func_eu_802e27e4_unused           = Nas_InitFilterCoef
+    fill_zero_filter                  = Nas_ClearFilter
+    func_sh_802F0DE8                  = Nas_SetLPFilter
+    func_sh_802F0E40                  = Nas_SetHPFilter
+    fill_filter                       = Nas_SetBPFilter
+ - [./Memory/specchg.m]
+    decrease_reverb_gain              = (static) [__Nas_DelayDown]
+    clear_curr_ai_buffer              = (static) [__Nas_DacClear]
+    audio_shut_down_and_reset_step    = Nas_SpecChange
+    audio_reset_session               = (static) [__Nas_MemoryReconfig]
+ - [./Memory/emem.m]
+    unk_pool1_lookup                  = EmemOnCheck
+    unk_pool1_alloc                   = EmemAlloc
+ - [./Memory/singlewave.m]
+    func_sh_802f1d40                  = Nas_Alloc_Single_Auto
+    func_sh_802f1d90                  = Nas_Alloc_Single_Stay
+    func_sh_802f1de0                  = Nas_Alloc_Single_Emem
+    unk_pools_init                    = Nas_Init_Single
+    func_sh_802f2158                  = (static) [__Nas_Alloc_Single_Auto_Inner]
+    func_sh_802F2320                  = (static) [__KillSwMember]
+    unk_pool2_alloc                   = (static) [__RomAddrSet]
+    func_sh_802f23ec                  = (static) [__Nas_Alloc_Single_Stay_Inner]
+
++ load.c (size: 0x3490): [system.c]
+ - [./System/superdma.m]
+    decrease_sample_dma_ttls          = Nas_WaveDmaFrameWork
+    dma_sample_data                   = Nas_WaveDmaCallBack
+    init_sample_dma_buffers           = Nas_WaveDmaNew
+ - [./System/bankctrl.m]
+    patch_seq_file                    = (static) [Nas_BankHeaderInit]
+    func_sh_802f2e24                  = Nas_PreLoadBank
+    preload_sequence                  = Nas_PreLoadSeq
+    func_sh_802f2f38                  = (static) [__Nas_LoadVoice_Inner]
+    func_sh_802f3024                  = Nas_LoadVoice
+    func_sh_802f30f4                  = Nas_PreLoadWave_BG
+    func_sh_802f3158                  = Nas_PreLoadBank_BG
+    func_sh_802f3220                  = Nas_SeqToBank
+    func_sh_802f3288                  = Nas_FlushBank
+    func_sh_802f3368                  = (static) [__Kill_Bank]
+ - [./System/multidev.m]
+    func_sh_802F3410                  = Nas_StartMySeq
+    func_sh_802F3430                  = (static) [__Nas_StartSeq]
+    func_sh_802f3598                  = (static) [__Load_Seq]
+    func_sh_802F3564                  = (static) [__Load_Wave]
+    func_sh_802f3688                  = (static) [__Load_Ctrl]
+    func_sh_802f3764                  = (static) [__Load_Bank]
+    func_sh_802f39a0                  = (static) [__Link_BankNum]
+    get_bank_or_seq_wrapper           = (static) [__Check_Cache]
+    get_audio_file_header             = (static) [__Get_ArcHeader]
+    patch_audio_bank                  = (static) [Nas_BankOfsToAddr_Inner]
+    func_sh_802f3c38                  = (static) [Nas_FastCopy]
+    func_sh_802f3d78                  = (static) [Nas_FastDiskCopy]
+    func_sh_802f3dd0                  = (static) [Nas_StartDma]
+    func_sh_802f3ec4                  = (static) [__OfsToLbaOfs]
+    func_sh_802f3ed4                  = (static) [Nas_DiskLoad]
+    func_sh_802f3ee8                  = EmemLoad
+    func_802f3f08                     = (static) [__Load_Bank_BG]
+    func_802f41e4                     = Nas_BgDmaFrameWork
+ - [./System/init.m]
+    audio_init                        = Nas_InitAudio
+ - [./System/loadplay.m]
+    func_802f47c8                     = VoiceLoad
+    func_sh_802f4978                  = (static) [__GetWaveTable]
+    stub_sh_802f49dc                  = (static) [__WriteBackLps]
+    func_sh_802f49e4                  = (static) [__SwapLoadLps]
+    func_sh_802f4a4c                  = LpsDma
+    func_sh_802f4bd8                  = (static) [__Nas_SlowCopy]
+    func_sh_802f4c5c                  = (static) [__Nas_SlowDiskCopy]
+ - [./System/bgload.m]
+    func_sh_802f4cb4                  = (static) [Nas_BgCopyReq]
+    func_sh_802f4dcc                  = Nas_BgCopyMain
+    func_sh_802f4e50                  = (static) [__BgCopySub]
+    func_sh_802f50ec                  = (static) [__Nas_BgCopy]
+    func_sh_802f517c                  = (static) [__Nas_BgDiskCopy]
+ - [./System/wavetouch.m]
+    func_sh_802f51d4                  = (static) [__WaveTouch]
+    func_sh_802f5310                  = (static) [Nas_BankOfsToAddr]
+    func_sh_802f573c                  = Nas_CheckBgWave
+ - [./System/wavelist.m]
+    func_sh_802f5900                  = (static) [__AddList]
+    func_sh_802f5948                  = MakeWaveList
+
++ port_sh.c (size: 0x1020): [sub_sys.c]
+ - [./Port/vframe.m]
+    func_sh_802f5a80                         = Nas_AudioMain
+ - [./Port/syscon.m]
+    func_sh_802f5fb8                         = (static) [Nap_AudioSysProcess]
+    func_sh_802f6288                         = (static) [__Nas_GroupFadeOut]
+    func_sh_802f62e0                         = (static) [__Nas_GroupFadeIn]
+ - [./Port/audioport.m]
+    func_sh_802f6330                         = (static) [Nap_AudioPortInit]
+    func_802ad6f0                            = (static) [Nap_PortSet]
+    func_802ad728                            = Nap_SetF32
+    func_802ad74c                            = Nap_SetS32
+    func_802ad770                            = Nap_SetS8
+    func_sh_802F64C8                         = Nap_SendStart
+    func_sh_802f6540                         = Nap_FlushPort
+    func_sh_802f6554                         = (static) [Nap_AudioPortProcess]
+    func_sh_802f6878                         = Nap_GetEvent
+    func_sh_802f68e0                         = Nap_SeqToBank
+    func_sh_802f6900                         = Nap_CheckSpecChange
+    func_sh_802f6958                         = Nap_StartSpecChange
+    func_sh_802f69cc                         = Nap_StartReset
+    func_sh_802f6a08                         = Nap_ReadSubPort
+    func_sh_802f6a6c                         = Nap_ReadGrpPort
+ - [./Port/audioreset.m]
+    func_sh_802f6a9c                         = Nas_InitGAudio
+
++ playback.c (size: 0x1bf0): [channel.c]
+ - [./Channel/drvsetuptbl.m]
+    note_set_vel_pan_reverb                  = (static) [Nas_smzSetParam]
+    note_set_resampling_rate                 = (static) [Nas_smzSetPitch]
+ - [./Channel/drive.m]
+    note_init                                = (static) [Nas_StartVoice]
+    note_disable                             = Nas_StopVoice
+ - [./Channel/voicemanager.m]
+    process_notes                            = Nas_UpdateChannel
+    instrument_get_audio_bank_sound          = NoteToVoice
+    get_instrument_inner                     = ProgToVp
+    get_drum                                 = PercToPp
+ - [./Channel/release.m]
+    seq_channel_layer_decay_release_internal = (static) [__Nas_Release_Channel_Main]
+    seq_channel_layer_note_decay             = Nas_Release_Channel
+    seq_channel_layer_note_release           = Nas_Release_Channel_Force
+ - [./Channel/wavemem.m]
+    build_synthetic_wave                     = (static) [Nas_WaveMemoryMake]
+    init_synthetic_wave                      = Nas_ContinueWaveMemory
+ - [./Channel/alloc2.m]
+    init_note_list                           = (static) [__Nas_InitList]
+    init_note_lists                          = Nas_InitChNode
+    init_note_free_list                      = Nas_InitChannelList
+    note_pool_clear                          = Nas_DeAllocAllVoices
+    note_pool_fill                           = Nas_AllocVoices
+    audio_list_push_front                    = (static) [Nas_AddListHead]
+    audio_list_remove                        = Nas_CutList
+    pop_node_with_lower_prio                 = (static) [__Nas_GetLowerPrio]
+    note_init_for_layer                      = Nas_EntryTrack
+    func_80319728                            = (static) [__Nas_InterTrack]
+    note_release_and_take_ownership          = (static) [__Nas_InterReleaseTrack]
+    alloc_note_from_disabled                 = (static) [__Nas_ChLookFree]
+    alloc_note_from_decaying                 = (static) [__Nas_ChLookRelease]
+    alloc_note_from_active                   = (static) [__Nas_ChLookRelWait]
+    alloc_note                               = Nas_AllocationOnRequest
+ - [./Channel/initch.m]
+    note_init_all                            = Nas_ChannelInit
+
++ effects.c (size: 0xaa0): [effect.c]
+ - [./Effect/ctrl.m2]
+    sequence_channel_process_sound           = (static) [__Nas_CallWaveProcess_Sub]
+    sequence_player_process_sound            = Nas_MainCtrl
+ - [./Effect/tablemod.m2]
+    get_portamento_freq_scale                = (static) [Nas_SweepCalculator]
+    get_vibrato_pitch_change                 = (static) [Nas_ModTableRead]
+    get_vibrato_freq_scale                   = (static) [Nas_Modulator]
+    note_vibrato_update                      = Nas_ChannelModulation
+    note_vibrato_init                        = Nas_ChannelModInit
+ - [./Effect/envp.m2]
+    adsr_init                                = Nas_EnvInit
+    adsr_update                              = Nas_EnvProcess
+
++ seqplayer.c (size: 0x2eb0): [track.c]
+ - [./Track/tralloc.m]
+    sequence_channel_init                    = (static) [Nas_InitSubTrack]
+    seq_channel_set_layer                    = (static) [Nas_EntryNoteTrack]
+    seq_channel_layer_disable                = Nas_ReleaseNoteTrack
+    seq_channel_layer_free                   = (static) [Nas_CloseNoteTrack]
+    sequence_channel_disable                 = Nas_ReleaseSubTrack
+    allocate_sequence_channel                = (static) [Nas_GetNewSubTrack]
+    sequence_player_init_channels            = (static) [Nas_AllocSub]
+    sequence_player_disable_channels         = (static) [Nas_DeAllocSub]
+    sequence_channel_enable                  = (static) [Nas_OpenSub]
+    sequence_player_disable                  = Nas_ReleaseGroup
+    audio_list_push_back                     = Nas_AddList
+    audio_list_pop_back                      = Nas_GetList
+    init_layer_freelist                      = (static) [Nas_InitNoteList]
+ - [./Track/dataread.m]
+    m64_read_u8                              = (static) [Nas_ReadByteData]
+    m64_read_s16                             = (static) [Nas_ReadWordData]
+    m64_read_compressed_u16                  = (static) [Nas_ReadLengthData]
+ - [./Track/noteseq3.m]
+    seq_channel_layer_process_script         = (static) [Nas_NoteSeq]
+    seq_channel_layer_process_script_part1   = (static) [__Stop_Note]
+    seq_channel_layer_process_script_part5   = (static) [__SetChannel]
+    seq_channel_layer_process_script_part2   = (static) [__Command_Seq]
+    seq_channel_layer_process_script_part4   = (static) [__SetVoice]
+    seq_channel_layer_process_script_part3   = (static) [__SetNote]
+ - [./Track/subseq2.m]
+    get_instrument                           = (static) [Nas_ProgramChanger]
+    set_instrument                           = (static) [Nas_SubVoiceSet]
+    sequence_channel_set_volume              = Nas_SubVolumeSet
+    sequence_channel_process_script          = (static) [Nas_SubSeq]
+ - [./Track/groupseq.m]
+    sequence_player_process_sequence         = (static) [Nas_GroupSeq]
+ - [./Track/seq.m]
+    process_sequences                        = Nas_MySeqMain
+ - [./Track/initseq.m]
+    init_sequence_player                     = Nas_InitMySeq
+    init_sequence_players                    = Nas_InitPlayer
+
++ osDriveRomInit.c (size: 0x100): [../io/driverominit.c]
+    osDriveRomInit
+
++ external.c (size: 0x3f20): [Game/game.c]
+ - [Game/memprint.m]
+    unused_8031E4F0                          = Na_MemoryPrint
+    unused_8031E568                          = Na_SpecPrint
+ - [Game/utility.m]
+    audio_reset_session_eu                   = Nas_SpecChangeSetWait
+ - [Game/event.m]
+    seq_player_fade_to_percentage_of_volume  = GroupVolMove
+    seq_player_fade_to_normal_volume         = GroupVolRestore
+    seq_player_fade_to_target_volume         = GroupVolMoveDirect
+ - [Game/gframe.m]
+    maybe_tick_game_sound                    = Nas_AudioInput
+    func_eu_802e9bec                         = Nas_SubTr_Mute
+ - [Game/entry.m]
+    play_sound                               = Na_SeFlagEntry
+    process_sound_request                    = Na_AllSeFlagEntry
+    process_all_sound_requests               = Na_AllSeBufferEntry
+    delete_sound_from_bank                   = Na_SeFlagFree
+    update_background_music_after_sound      = Na_SeBgmMuteOff
+    select_current_sounds                    = Na_SeTrackEntry
+    get_sound_pan                            = Na_SePan
+    get_sound_volume                         = Na_SeVolume
+    get_sound_freq_scale                     = Na_SePitch
+    get_sound_reverb                         = Na_SeEffect
+    noop_8031EEC8                            = Na_AudioDprint
+    audio_signal_game_loop_tick              = Na_AllSeCheck
+    update_game_sound                        = Naa_AllSeCheck
+    seq_player_play_sequence                 = Na_SeqStart
+    seq_player_fade_out                      = Na_SeqStop
+    fade_volume_scale                        = Na_AllSeqSubVolumeTrans
+    fade_channel_volume_scale                = Na_SeqSubVolumeTrans
+    func_8031F96C                            = Na_SeqSubVolumeMove
+    process_level_music_dynamics             = Na_AllMusicCheck
+    unused_8031FED0                          = Na_SeqMixing
+    seq_player_lower_volume                  = Na_SeqVolMute
+    seq_player_unlower_volume                = Na_SeqVolRecover
+    begin_background_music_fade              = Na_Seq0MuteVolSet
+    set_audio_muted                          = Na_PauseSet
+    sound_init                               = interface_init
+    get_currently_playing_sound              = Na_SeInfoGet
+    stop_sound                               = Na_SeEnd
+    stop_sounds_from_source                  = Na_ObjSeEnd
+    stop_sounds_in_bank                      = Na_AllSeStop
+    stop_sounds_in_continuous_banks          = Na_LevelSeAllStop
+    sound_banks_disable                      = Na_PortLock
+    disable_all_sequence_players             = Na_AllSeqStop
+    sound_banks_enable                       = Na_PortUnlock
+    unused_803209D8                          = Na_SubTrackMute
+    set_sound_moving_speed                   = Na_SetObjSpeed
+    play_dialog_sound                        = Na_MessageSound
+    play_music                               = Na_BgmFlagEntry
+    stop_background_music                    = Na_BgmFlagFree
+    fadeout_background_music                 = Na_BgmFlagFadeOut
+    drop_queued_background_music             = Na_AllBgmStackFlagFree
+    func_80320ED8                            = Na_Seq1PlayingCheck
+    play_secondary_music                     = Na_AddSeq
+    func_80321080                            = Na_SubSeq
+    play_course_clear                        = Na_ClearFanfare
+    play_peachs_jingle                       = Na_NewDoorMessageBgm
+    play_puzzle_jingle                       = Na_NazoClearBgm
+    play_star_fanfare                        = Na_HiScoreBgm
+    play_power_star_jingle                   = Na_NewStarAppearBgm
+    play_race_fanfare                        = Na_RaceFanfareBgm
+    play_toads_jingle                        = Na_kinopioAppearBgm
+    sound_reset                              = Na_StageChange
+    audio_set_sound_mode                     = Na_OutputMode

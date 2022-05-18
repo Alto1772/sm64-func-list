@@ -1,0 +1,77 @@
+NISHIDA_OBJS:
+debug       = src/game/crash_screen
+system      = src/game/main
+gfxmain     = src/game/game_init
+audmain     = src/game/sound_init
+mtrmain     = src/game/rumble_init
+game        = src/game/level_update
+collision   = src/game/interaction
+player      = src/game/mario
+physics     = src/game/mario_step
+autodemo    = src/game/mario_actions_cutscene
+special     = src/game/mario_actions_automatic
+waiting     = src/game/mario_actions_stationary
+running     = src/game/mario_actions_moving
+jumping     = src/game/mario_actions_airborne
+swimming    = src/game/mario_actions_submerged
+action      = src/game/mario_actions_object
+callback    = src/game/level_geo + src/game/mario_misc
+memory      = src/game/memory
+backup      = src/game/save_file
+scene       = src/game/area
+hmsdraw     = src/game/rendering_graph_node
+time        = src/game/profiler
+slidec      = asm/decompress
+
+KAWAGOE_OBJS:
+camera      = src/game/camera
+
+YAJIMA_OBJS:
+course      = src/game/debug_course
+strategy    = src/game/object_list_processor
+stratlib    = src/game/object_helpers
+alien       = src/game/behavior_actions
+bgmove      = src/game/platform_displacement
+mvbgdata    = <empty .text/.data section>
+objhit      = src/game/object_collision
+linklist    = src/game/spawn_object
+objsound    = src/game/spawn_sound
+coin        = src/game/debug (via stub_debug_1, stub_debug_2) 
+door        = src/game/debug (via stub_debug_3, stub_debug_4)
+ydebug      = src/game/debug
+
+TANIMOTO_OBJS:
+wipe2       = src/game/screen_transition
+shade       = src/game/shadow
+bgdraw3     = src/game/skybox
+water       = src/game/moving_texture
+tutil       = src/game/geo_misc
+wave        = src/game/paintings
+
+IWAMOTO_OBJS:
+dprint      = src/game/print
+message     = src/game/ingame_menu
+weather     = src/game/envfx_snow
+gusheffect  = src/game/envfx_bubbles
+flkdecode   = src/game/macro_special_objects
+gauge       = src/game/hud
+ienemy      = src/game/obj_behaviors
+
+IWAWAKI_OBJS:
+wenemy      = src/game/obj_behaviors_2
+
+-----------------------------------------------------
+
+USRLIB_OBJS:
+math, mathtbl = src/engine/math_util
+hierarchy     = src/engine/graph_node
+maplang       = src/engine/graph_node_manager, src/engine/geo_layout
+seqlang       = src/engine/level_script
+bgcheck       = src/engine/surface_collision
+bgdecode      = src/engine/surface_load
+path          = src/engine/behavior_script
+
+DEMO_OBJS:
+title, titlebg? = src/menu/intro_geo
+fileselect      = src/menu/file_select
+starselect      = src/menu/star_select

@@ -1,0 +1,64 @@
+=======================  DATA  =======================
+
+- screen_transition.c: [wipe2.c]
+  sTransitionColorFadeCount                          = [s] wipe_frame_counter
+  sTransitionTextureFadeCount                        = [s] wipe_angle_counter
+  sTextureTransitionID                               = [s] wipe_txt
+
+- shadow.c: [shade.c]
+  rectangles                                         = [s] shade_rect_data
+
+- skybox.c: [bgdraw3.c]
+  sSkyboxTextures                                    = [s] scene_rec_ptr
+  sSkyboxColors                                      = [s] BG_polygon_color
+
+- moving_texture.c: [water.c]
+  gMovtexCounter                                     = [s] counter_now
+  gMovtexCounterPrev                                 = [s] counter_bef
+  gMovtexVtxColor                                    = [s] wt_kdow
+  gPaintingMarioYEntry                               = pool_marioY
+  gWdwWaterLevelSet                                  = pool_flag
+  gMovtexIdToTexture                                 = [s] water_texture_rec
+  gMovtexNonColored                                  = [s] falldata_nolight
+  gMovtexColored                                     = [s] falldata_light
+  gMovtexColored2                                    = [s] sandcone
+
+- geo_misc:c [tutil.c]
+  [s] sCurAreaTimer                                  = [s] count_now
+  [s] sPrevAreaTimer                                 = [s] count_bef
+  [s] sFlyingCarpetRippleTimer                       = [s] arajin_time
+
+- paintings:c [wave.c]
+  sHmcPaintings                                      = [s] waveWdouRec
+  sInsideCastlePaintings                             = [s] waveSRRec
+  sTtmPaintings                                      = [s] waveDKRec
+  sPaintingGroups                                    = [s] waveWRec
+  gPaintingUpdateCounter                             = [s] counter_now
+  gLastPaintingUpdateCounter                         = [s] counter_bef
+
+=======================  BSS   =======================
+
+- shadow.c: [shade.c]
+  gShadowAboveWaterOrLava                            = shade_Wflag
+  gMarioOnIceOrCarpet                                = shade_Tflag
+  sMarioOnFlyingCarpet                               = [s] shade_Aflag
+  sSurfaceTypeBelowShadow                            = [s] marioBGattr
+
+- skybox.c: [bgdraw3.c]
+  sSkyBoxInfo                                        = [s] angle_rec
+
+- moving_texture.c: [water.c]
+  gMovetexLastTextureId                              = [s] current_texNo
+
+- geo_misc:c [tutil.c]
+  gFlyingCarpetState                                 = arajin_on
+
+- paintings:c [wave.c]
+  gPaintingMarioFloorType                            = [s] current_code
+  gPaintingMarioXPos                                 = [s] current_x
+  gPaintingMarioYPos                                 = [s] current_y
+  gPaintingMarioZPos                                 = [s] current_z
+  gPaintingMesh                                      = [s] pointPtr
+  gPaintingTriNorms                                  = [s] polygPtr
+  gRipplingPainting                                  = wavePtr
+  gDddPaintingStatus                                 = wave_dummy_backup

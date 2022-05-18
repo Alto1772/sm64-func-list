@@ -1,0 +1,26 @@
+# activate free movement mode
+
+# gControllers[0].buttonDown [8033af90 + 0x10] // EU: 80309250 // SH: 8031d550
+# mario_execute_moving_action [80269954] (mario_actions_moving.c: [0x5af4]) // EU: 8025ded0, 0x47a0 // SH: 8026622c, 0x47fc
+# act_walking [80266354] // EU: 8025b388 // SH: 80263688
+# act_debug_free_move [80257eac] // EU: 8024ff38 // SH: 80258114
+
+D133AFA0 2100 # Z_TRIG | R_JPAD
+81269BDA 5FAB # act_debug_free_move
+
+D133AFA0 8000 # A_BUTTON
+81269BDA 98D5 # act_walking
+
+# EU:
+D1309260 2100
+8125E0FA 3FCE
+
+D1309260 8000
+8125E0FA 6CE2
+
+# SH:
+D131D560 2100
+81266456 6045
+
+D131D560 8000
+81266456 8DA2

@@ -1,0 +1,132 @@
+=======================  DATA  =======================
+
+- print.c: [dprint.c]
+  sTextLabelsCount                                   = [s] nprints
+
+- ingame_menu.c: [message.c]
+  gDialogBoxState                                    = [s] message_flag
+  gDialogBoxOpenTimer                                = [s] theta
+  gDialogBoxScale                                    = [s] win_sc
+  gDialogScrollOffsetY                               = [s] font_tr
+  gDialogBoxType                                     = [s] message_type
+  gDialogID                                          = [s] messageNo
+  gLastDialogPageStrPos                              = [s] mess_first_pointer
+  gDialogTextPos                                     = [s] message_go
+  gDialogLineNum                                     = [s] cursor_no
+  gLastDialogResponse                                = [s] cursor_flag
+  gMenuHoldKeyIndex                                  = [s] sticktrg
+  gMenuHoldKeyTimer                                  = [s] trg_count
+  gDialogResponse                                    = messageAnsNo
+  gHudSymCoin                                        = [s] se16_coinnum1
+  gHudSymX                                           = [s] se16_coinnum2
+  gMenuMode                                          = [s] selectNo
+  gEndCutsceneStrEn0                                 = [s] endingdemo_00
+  gEndCutsceneStrEn1                                 = [s] endingdemo_01
+  gEndCutsceneStrEn2                                 = [s] endingdemo_02
+  gEndCutsceneStrEn3                                 = [s] endingdemo_03
+  gEndCutsceneStrEn4                                 = [s] endingdemo_04
+  gEndCutsceneStrEn5                                 = [s] endingdemo_05
+  gEndCutsceneStrEn6                                 = [s] endingdemo_06
+  gEndCutsceneStrEn7                                 = [s] endingdemo_07
+  gEndCutsceneStrEn8                                 = [s] endingdemo_08
+  gEndCutsceneStringsEn                              = [s] endingdemoPtr
+  gCutsceneMsgFade                                   = [s] ending_alpha
+  gCutsceneMsgIndex                                  = [s] endingdemo_messageNo
+  gCutsceneMsgDuration                               = [s] endingdemo_frameNum
+  gCutsceneMsgTimer                                  = [s] endingdemo_count
+  gDialogCameraAngleIndex                            = [s] cam_crs
+  gDialogCourseActNum                                = select_starNo
+  gCourseCompleteCoinsEqual                          = [s] save_flag
+  gCourseDoneMenuTimer                               = [s] saveScene_counter
+  gCourseCompleteCoins                               = [s] coin_counter
+  gHudFlash                                          = getStar_flag
+
+- envfx_snow.c: [weather.c]
+  gEnvFxMode                                         = weather_trg
+  D_80330644                                         = ? (0x4)
+  gSnowTempVtx                                       = [s] vtx_snowInit
+  gSnowFlakeVertex1                                  = ? (0x38)
+  gSnowFlakeVertex2                                  = ? (0x40)
+  gSnowFlakeVertex3                                  = ? (0x48)
+
+- envfx_bubbles.c: [gusheffect.c]
+  D_80330690                                         = [s] num
+  D_80330694                                         = ? (0x4)
+  gBubbleTempVtx                                     = [s] vtx_effectInit
+
+- macro_special_objects.c: [flkdecode.c]
+  MacroObjectPresets                                 = [s] enemytag_table
+  [s] SpecialObjectPresets                           = [s] flkdecode_data
+
+- hud.c: [gauge.c]
+  [s] sPowerMeterHUD                                 = meter
+  sPowerMeterVisibleTimer                            = [s] count
+  [s] sUnusedHUDValues                               = [s] offt
+  ? (0x14)                                           = [s] len
+  [s] sCameraHUD                                     = [s] camIconFlag
+
+- obj_behaviors.c: [ienemy.c]
+  [s] sOrientObjWithFloor                            = [s] incline_flag
+  sPrevCheckMarioRoom                                = [s] be_map_areacode
+  sYoshiDead                                         = yoshi_destFlag
+  sDebugSequenceTracker                              = [s] com_counter
+  sDebugTimer                                        = [s] com_timer
+  [s] sMovingYellowCoinHitbox                        = [s] coin_hit
+  [s] sMovingBlueCoinHitbox                          = [s] escapecoin_hit
+  [s] sBobombHitbox                                  = [s] newbom_hit
+  [s] sWhirlpoolHitbox                               = [s] uzumaki_hit
+  [s] sAmpHitbox                                     = [s] biribiri_hit
+  [s] sSmallBullyHitbox                              = [s] otos_hit
+  [s] sBigBullyHitbox                                = [s] oya_otos_hit
+  [s] sMoneybagHitbox                                = [s] kuramoti_hit
+  [s] sMoneybagHiddenHitbox                          = [s] kura_coin_hit
+  [s] sBowlingBallHitbox                             = [s] ironball_hit
+  [s] sThiHugeMetalBallTraj                          = ironball_stage13_a_raildata
+  [s] sThiTinyMetalBallTraj                          = ironball_stage13_b_raildata
+  [s] sRollingSphereHitbox                           = [s] snow_rock_hit
+  [s] sCapHitbox                                     = [s] item_hat_hit
+  [s] sCollectStarHitbox                             = [s] polystar_hit
+  [s] sRedCoinHitbox                                 = [s] redcoin_hit
+  [s] D_80331694                                     = [s] NEWSliftButton_flag
+  sBreakableBoxSmallHitbox                           = [s] takeblock_hit
+  [s] sMantaRayTraj                                  = manta_raildata
+  [s] sMantaRayHitbox                                = [s] manta_hit
+  [s] sFallingPillarHitbox                           = [s] wd_pillar_hit
+  [s] sTreasureChestBottomHitbox                     = [s] treasure_hit
+  [s] sYoshiHomeLocations                            = yoshi_rail
+
+=======================  BSS   =======================
+
+- print.c: [dprint.c]
+  sTextLabels                                        = [s] printPtr
+
+- ingame_menu.c: [message.c]
+  gDialogColorFadeTimer                              = [s] delta
+  gLastDialogLineNum                                 = [s] cursor_line
+  gDialogVariable                                    = [s] message_value
+  gDialogTextAlpha                                   = [s] font_alpha
+  gCutsceneMsgXOffset                                = [s] endingdemo_posx
+  gCutsceneMsgYOffset                                = [s] endingdemo_posy
+  gRedCoinsCollected                                 = redcoin_num
+
+- envfx_snow.c: [weather.c]
+  gEnvFxBuffer                                       = gushData
+  gSnowCylinderLastPos                               = [s] be_snowPos
+  gSnowParticleCount                                 = [s] snow_num
+  gSnowParticleMaxCount                              = [s] snow_max
+
+- envfx_bubbles.c: [gusheffect.c]
+  gEnvFxBubbleConfig                                 = gushBuf
+  [s] sGfxCursor                                     = [s] glist_tmp
+  [s] sBubbleParticleCount                           = [s] obj_max
+  [s] sBubbleParticleMaxCount                        = [s] obj_num
+
+- macro_special_objects.c: [flkdecode.c]
+  MacroObjectPresets                                 = [s] enemytag_table
+  [s] SpecialObjectPresets                           = [s] flkdecode_data
+
+- hud.c: [gauge.c]
+  [s] sPowerMeterStoredHealth                        = [s] be_dameter
+
+- obj_behaviors.c: [ienemy.c]
+  [s] sObjFloor                                      = moveobj_bgcp

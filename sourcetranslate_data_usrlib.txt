@@ -1,0 +1,67 @@
+=======================  DATA  =======================
+
+# yeah, this wasn't supposed to be here
+- graph_node.c: [math.c]
+  identityMtx                                        = fixedIdentMatrix
+  zeroMtx                                            = ? (0x20)
+  gVec3fZero                                         = zeroFVector
+  gVec3sZero                                         = zeroSVector
+  gVec3fOne                                          = unitFVector
+  gVec3sOne                                          = unitSVector
+
+- math_util.c: [mathtbl.c]
+  gSineTable                                         = sintable
+  gCosineTable                                       = costable
+  gArctanTable                                       = atntable
+
+- graph_node.c: [hierarchy.c]
+  GeoLayoutJumpTable                                 = [s] hmsProcess
+  unused_8038B894                                    = ? (0x84)       # contains only zeroes, which suggests it's included
+                                                                      # from above not unused though... (hmsProcess mabye
+                                                                      # has fixed array size and it added zeroes at the end)
+
+- level_script.c: [seqlang.c]
+  [s] sLevelPool                                     = [s] stageArena
+  [s] sDelayFrames                                   = [s] waitCount
+  [s] sDelayFrames2                                  = [s] freezeCount
+  [s] sCurrAreaIndex                                 = [s] currentScene
+  [s] sStackTop                                      = [s] execSP
+  [s] sStackBase                                     = [s] execFP
+  [s] LevelScriptJumpTable                           = [s] seqProcess
+
+- behavior_script.c: [path.c]
+  [s] BehaviorCmdTable                               = pathfunc
+
+=======================  BSS   =======================
+
+- math_util.c: [math.c]
+  gSplineKeyframe                                    = [s] spline
+  gSplineKeyframeFraction                            = [s] sptime
+  gSplineState                                       = [s] spfunc
+
+- graph_node.c: [hierarchy.c]
+  gObjParentGraphNode                                = strategyGroup
+  gGraphNodePool                                     = [s] arena
+  gCurRootGraphNode                                  = [s] firstNode
+  D_8038BCA8                                         = [s] branchNode
+  gGeoViews                                          = [s] storageTable
+  gGeoNumViews                                       = [s] nstorages
+  gGeoLayoutStack                                    = [s] execStack
+  gCurGraphNodeList                                  = [s] nodeStack
+  gCurGraphNodeIndex                                 = [s] nodeSP
+  gGeoLayoutStackIndex                               = [s] execSP
+  D_8038BD7C                                         = [s] nodeFP
+  gGeoLayoutReturnIndex                              = [s] execFP
+  gGeoLayoutCommand                                  = [s] execPC
+
+- level_script.c: [seqlang.c]
+  [s] sStack                                         = [s] stackMemory
+  [s] sScriptStatus                                  = [s] execute
+  [s] sRegister                                      = [s] cprogramResult
+  [s] sCurrentCmd                                    = [s] execPC
+
+- behavior_script.c: [path.c]
+  [s] gRandomSeed16                                  = work_random
+  ? (0x2)                                            = jumpflag      # unused, decomp didn't add this last variable and
+                                                                     # it's also the last symbol in bss section so they
+                                                                     # don't care about it.

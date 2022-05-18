@@ -1,0 +1,333 @@
+- math_util.c: [math.c]
+  vec3f_copy                                         = CopyFVector
+  vec3f_set                                          = SetFVector
+  vec3f_add                                          = AddFVector
+  vec3f_sum                                          = AddToFVector
+  vec3s_copy                                         = CopySVector
+  vec3s_set                                          = SetSVector
+  vec3s_add                                          = AddSVector
+  vec3s_sum                                          = AddToSVector
+  vec3s_sub                                          = SubSVector
+  vec3s_to_vec3f                                     = SVectorToFVector
+  vec3f_to_vec3s                                     = FVectorToSVector
+  find_vector_perpendicular_to_plane                 = CalcNormalVector
+  vec3f_cross                                        = CrossProduct
+  vec3f_normalize                                    = NormalizeFVector
+  mtxf_copy                                          = CopyAffineMtx
+  mtxf_identity                                      = LoadIdentAffineMtx
+  mtxf_translate                                     = CreateTransAffineMtx
+  mtxf_lookat                                        = LookAtAffineMtx
+  mtxf_rotate_zxy_and_translate                      = CreateModelAffineMtx
+  mtxf_rotate_xyz_and_translate                      = CreateJointAffineMtx
+  mtxf_billboard                                     = CreateBboardAffineMtx
+  mtxf_align_terrain_normal                          = CreateRotationAffineMtx
+  mtxf_align_terrain_triangle                        = CreatePostureAffineMtx
+  mtxf_mul                                           = MultAffineMtx
+  mtxf_scale_vec3f                                   = ScaleAffineMtx
+  mtxf_mul_vec3s                                     = RotatePoint
+  mtxf_to_mtx                                        = AffineToMtx
+  mtxf_rotate_xy                                     = CreateBankMatrix
+  get_pos_from_transform_mtx                         = CalcGlobalPosition
+  vec3f_get_dist_and_angle                           = CrossToPolar
+  vec3f_set_dist_and_angle                           = PolarToCross
+  approach_s32                                       = IConverge
+  approach_f32                                       = FConverge
+  [s] atan2_lookup                                   = [s] GetAtanTable
+  atan2s                                             = atan
+  atan2f                                             = atanf
+  spline_get_weights                                 = [s] BSpline
+  anim_spline_init                                   = StartBSpline
+  anim_spline_poll                                   = RunBSpline
+
+- graph_node.c: [hierarchy.c]
+  init_scene_graph_node_links                        = [s] InitNode
+  init_graph_node_root                               = MapNewScene
+  init_graph_node_ortho_projection                   = MapNewOrtho
+  init_graph_node_perspective                        = MapNewPersp
+  init_graph_node_start                              = MapNewGroup
+  init_graph_node_master_list                        = MapNewLayer
+  init_graph_node_render_range                       = MapNewLOD
+  init_graph_node_switch_case                        = MapNewSelect
+  init_graph_node_camera                             = MapNewCamera
+  init_graph_node_translation_rotation               = MapNewCoord
+  init_graph_node_translation                        = MapNewTrans
+  init_graph_node_rotation                           = MapNewRotate
+  init_graph_node_scale                              = MapNewScale
+  init_graph_node_object                             = MapNewShape
+  init_graph_node_culling_radius                     = MapNewHeader
+  init_graph_node_animated_part                      = MapNewJoint
+  init_graph_node_billboard                          = MapNewBboard
+  init_graph_node_display_list                       = MapNewGfx
+  init_graph_node_shadow                             = MapNewShadow
+  init_graph_node_object_parent                      = MapNewBranch
+  init_graph_node_generated                          = MapNewCProg
+  init_graph_node_background                         = MapNewClear
+  init_graph_node_held_object                        = MapNewSucker
+  geo_add_child                                      = MapAddChild
+  geo_remove_child                                   = MapRemoveChild
+  geo_make_first_child                               = MapChangeFirstChild
+  geo_call_global_function_nodes_helper              = [s] SendNodeMessage
+  geo_call_global_function_nodes                     = MapSendMessage
+  geo_reset_object_node                              = MapInitShape
+  geo_obj_init                                       = MapEnterShape
+  geo_obj_init_spawninfo                             = MapEnterActor
+  geo_obj_init_animation                             = MapSetAnimation
+  geo_obj_init_animation_accel                       = MapSetVariableAnime
+  retrieve_animation_index                           = MapAnimeIndex
+  geo_update_animation_frame                         = MapNextAnimeFrame
+  geo_retreive_animation_translation                 = MapGetWaistOffset
+  geo_find_root                                      = MapGetScenePtr
+
+- [maplang.c]:
+  - graph_node_manager.c:
+    read_vec3s_to_vec3f                                = [s] SetFloatVector
+    read_vec3s                                         = [s] SetTransVector
+    read_vec3s_angle                                   = [s] SetAngleVector
+    register_scene_graph_node                          = [s] SetNode
+  - geo_layout.c:
+    geo_layout_cmd_branch_and_link                     = [s] HmsExec
+    geo_layout_cmd_end                                 = [s] HmsExit
+    geo_layout_cmd_branch                              = [s] HmsJump
+    geo_layout_cmd_return                              = [s] HmsReturn
+    geo_layout_cmd_open_node                           = [s] HmsBegin
+    geo_layout_cmd_close_node                          = [s] HmsEnd
+    geo_layout_cmd_assign_as_view                      = [s] HmsStorage
+    geo_layout_cmd_update_node_flags                   = [s] HmsPutFlag
+    geo_layout_cmd_node_root                           = [s] HmsScene
+    geo_layout_cmd_node_ortho_projection               = [s] HmsOrtho
+    geo_layout_cmd_node_perspective                    = [s] HmsPersp
+    geo_layout_cmd_node_start                          = [s] HmsGroup
+    geo_layout_cmd_nop3                                = [s] HmsArea
+    geo_layout_cmd_node_master_list                    = [s] HmsLayer
+    geo_layout_cmd_node_level_of_detail                = [s] HmsLOD
+    geo_layout_cmd_node_switch_case                    = [s] HmsSelect
+    geo_layout_cmd_node_camera                         = [s] HmsCamera
+    geo_layout_cmd_node_translation_rotation           = [s] HmsCoord
+    geo_layout_cmd_node_translation                    = [s] HmsTrans
+    geo_layout_cmd_node_rotation                       = [s] HmsRotate
+    geo_layout_cmd_node_scale                          = [s] HmsScale
+    geo_layout_cmd_nop2                                = [s] HmsMatrix
+    geo_layout_cmd_node_animated_part                  = [s] HmsJoint
+    geo_layout_cmd_node_billboard                      = [s] HmsBboard
+    geo_layout_cmd_node_display_list                   = [s] HmsGFX
+    geo_layout_cmd_node_shadow                         = [s] HmsShadow
+    geo_layout_cmd_node_object_parent                  = [s] HmsObject
+    geo_layout_cmd_node_generated                      = [s] HmsCProg
+    geo_layout_cmd_node_background                     = [s] HmsClear
+    geo_layout_cmd_nop                                 = [s] HmsPrint
+    geo_layout_cmd_copy_view                           = [s] HmsBranch
+    geo_layout_cmd_node_held_obj                       = [s] HmsSucker
+    geo_layout_cmd_node_culling_radius                 = [s] HmsHeader
+    process_geo_layout                                 = ConstructHierarchyMap
+
+# NOTE: seqlang.o from the leek src has been shifted
+# because these functions stated below contain some
+# code that isn't available on retail shindou rom and/or
+# added just for debugging purposes. They probably
+# forgot to remove debug flag (not -g) while
+# compiling this code:
+#
+# - in level_cmd_load_mario_head (SeqLoadFace):
+#   osSyncPrintf("face anime memory overflow\n");
+#
+# - in level_cmd_nop (SeqBlankColor):
+#   osSyncPrintf("BAD: seqBlankColor\n");
+#
+# - in level_script_execute (ExecuteSequence):
+#   osSyncPrintf("%08X: ", execPC);
+#   osSyncPrintf("%02d\n", execPC->seqId);
+
+- level_script.c: [seqlang.c]
+  [s] eval_script_op                                 = [s] ConditionCheck
+  [s] level_cmd_load_and_execute                     = [s] SeqExecute
+  [s] level_cmd_exit_and_execute                     = [s] SeqChain
+  [s] level_cmd_exit                                 = [s] SeqExit
+  [s] level_cmd_sleep                                = [s] SeqWait
+  [s] level_cmd_sleep2                               = [s] SeqFreeze
+  [s] level_cmd_jump                                 = [s] SeqJump
+  [s] level_cmd_jump_and_link                        = [s] SeqCall
+  [s] level_cmd_return                               = [s] SeqReturn
+  [s] level_cmd_jump_and_link_push_arg               = [s] SeqDo
+  [s] level_cmd_jump_repeat                          = [s] SeqNext
+  [s] level_cmd_loop_begin                           = [s] SeqRepeat
+  [s] level_cmd_loop_until                           = [s] SeqUntil
+  [s] level_cmd_jump_if                              = [s] SeqTstJump
+  [s] level_cmd_jump_and_link_if                     = [s] SeqTstCall
+  [s] level_cmd_skip_if                              = [s] SeqIf
+  [s] level_cmd_skip                                 = [s] SeqElse
+  [s] level_cmd_skippable_nop                        = [s] SeqEndif
+  [s] level_cmd_call                                 = [s] SeqCProgram
+  [s] level_cmd_call_loop                            = [s] SeqRunning
+  [s] level_cmd_set_register                         = [s] SeqSetResult
+  [s] level_cmd_push_pool_state                      = [s] SeqLinkMemory
+  [s] level_cmd_pop_pool_state                       = [s] SeqUnlinkMemory
+  [s] level_cmd_load_to_fixed_address                = [s] SeqLoadCode
+  [s] level_cmd_load_raw                             = [s] SeqLoadData
+  [s] level_cmd_load_mio0                            = [s] SeqLoadPres
+  [s] level_cmd_load_mario_head                      = [s] SeqLoadFace
+  [s] level_cmd_load_mio0_texture                    = [s] SeqLoadText
+  [s] level_cmd_init_level                           = [s] SeqInitStage
+  [s] level_cmd_clear_level                          = [s] SeqDestroyStage
+  [s] level_cmd_alloc_level_pool                     = [s] SeqBeginConstruction
+  [s] level_cmd_free_level_pool                      = [s] SeqEndConstruction
+  [s] level_cmd_begin_area                           = [s] SeqBeginScene
+  [s] level_cmd_end_area                             = [s] SeqEndScene
+  [s] level_cmd_load_model_from_dl                   = [s] SeqGfxShape
+  [s] level_cmd_load_model_from_geo                  = [s] SeqHmsShape
+  [s] level_cmd_23                                   = [s] SeqSclShape
+  [s] level_cmd_init_mario                           = [s] SeqStarring
+  [s] level_cmd_place_object                         = [s] SeqActor
+  [s] level_cmd_create_warp_node                     = [s] SeqPort
+  [s] level_cmd_create_instant_warp                  = [s] SeqConnect
+  [s] level_cmd_set_terrain_type                     = [s] SeqEnvironment
+  [s] level_cmd_create_painting_warp_node            = [s] SeqBGPort
+  [s] level_cmd_3A                                   = [s] SeqWindZone
+  [s] level_cmd_create_whirlpool                     = [s] SeqWaterJet
+  [s] level_cmd_set_blackout                         = [s] SeqBlanking
+  [s] level_cmd_set_gamma                            = [s] SeqGammaCorrection
+  [s] level_cmd_set_terrain_data                     = [s] SeqMapInfo
+  [s] level_cmd_set_rooms                            = [s] SeqAreaInfo
+  [s] level_cmd_set_macro_objects                    = [s] SeqTagInfo
+  [s] level_cmd_load_area                            = [s] SeqOpenScene
+  [s] level_cmd_unload_area                          = [s] SeqCloseScene
+  [s] level_cmd_set_mario_start_pos                  = [s] SeqEnterPlayer
+  [s] level_cmd_2C                                   = [s] SeqExitPlayer
+  [s] level_cmd_2D                                   = [s] SeqExecStrategy
+  [s] level_cmd_set_transition                       = [s] SeqWipe
+  [s] level_cmd_nop                                  = [s] SeqBlankColor
+  [s] level_cmd_show_dialog                          = [s] SeqMessage
+  [s] level_cmd_set_music                            = [s] SeqSetMusic
+  [s] level_cmd_set_menu_music                       = [s] SeqPlayMusic
+  [s] level_cmd_38                                   = [s] SeqStopMusic
+  [s] level_cmd_get_or_set_var                       = [s] SeqGameMode
+  level_script_execute                               = ExecuteSequence
+
+- surface_collision.c: [bgcheck.c]
+  [s] find_wall_collisions_from_list                 = [s] XBG_WallCheck
+  f32_find_wall_collision                            = WallCheck
+  find_wall_collisions                               = mcBGWallCheck
+  [s] find_ceil_from_list                            = [s] BG_RoofCheck
+  find_ceil                                          = mcBGRoofCheck
+  unused_obj_find_floor_height                       = s_bgcheck
+  find_floor_height_and_data                         = GroundCheck
+  [s] find_floor_from_list                           = [s] BG_GroundCheck
+  find_floor_height                                  = BGcheck
+  unused_find_dynamic_floor                          = mcMoveGroundCheck
+  find_floor                                         = mcBGGroundCheck
+  find_water_level                                   = mcWaterCheck
+  find_poison_gas_level                              = mcGasCheck
+  [s] surface_list_length                            = [s] mcCountBGlist
+  debug_surface_list_info                            = mcDebugBGlist
+  unused_resolve_floor_or_ceil_collisions            = mcR_PlaneCheck
+
+# NOTE: bgdecode.o from the leek src has also
+# been shifted too. I suggest they probably just
+# checking if the buffer for loading collision
+# related exceeds the maximum memory range.:
+#
+# - in alloc_surface_node (mcMakeBGCheckList):
+#   osSyncPrintf(" mcMakeBGCheckList OVERFLOW\n");
+#
+# - in alloc_surface (mcMakeBGCheckData):
+#   osSyncPrintf(" mcMakeBGCheckData OVERFLOW\n");
+#
+# - in load_environmental_regions (mcMakeBGCheckList):
+#   osSyncPrintf("Error Water Over\n");
+#
+# - in load_area_terrain (mcInitBGCheck):
+#   osSyncPrintf(" BGCode Error \n");
+
+- surface_load.c: [bgdecode.c]
+  [s] alloc_surface_node                             = [s] mcMakeBGCheckList
+  [s] alloc_surface                                  = [s] mcMakeBGCheckData
+  [s] clear_spatial_partition                        = [s] mcResetBGHead
+  [s] clear_static_surfaces                          = [s] mcInitBGCheckHead
+  [s] add_surface_to_cell                            = [s] mcAddBGCheckList
+  [s] min_3                                          = [s] mcGetMinData
+  [s] max_3                                          = [s] mcGetMaxData
+  [s] lower_cell_index                               = [s] mcGetMinArea
+  [s] upper_cell_index                               = [s] mcGetMaxArea
+  [s] add_surface                                    = [s] mcAddWorldArea
+  [s] stub_surface_load_1                            = [s] mcDebugAreaList
+  [s] read_surface_data                              = [s] mcSetPlane
+  [s] surface_has_force                              = [s] flkcode_check
+  [s] surf_has_no_cam_collision                      = [s] flkcode_typecheck
+  [s] load_static_surfaces                           = [s] mcDecodePlane
+  [s] read_vertex_data                               = [s] mcDecodePoint
+  [s] load_environmental_regions                     = [s] mcDecodeWaterLine
+  alloc_surface_pools                                = mcAllocBGList
+  load_area_terrain                                  = mcInitBGCheck
+  clear_dynamic_surfaces                             = mcInitMoveBGList
+  [s] unused_80383604                                = stInitMoveBG
+  transform_object_vertices                          = [s] SetPoint
+  load_object_surfaces                               = [s] SetFace
+  load_object_collision_model                        = stMainMoveBG
+
+- behavior_script.c: [path.c]
+  [s] goto_behavior_unused                           = [s] JumpAddressProc
+  random_u16                                         = Randomd
+  random_float                                       = Randomf
+  random_sign                                        = RandomSign
+  obj_update_gfx_pos_and_angle                       = [s] copyvector_map
+  [s] cur_obj_bhv_stack_push                         = [s] push_data
+  [s] cur_obj_bhv_stack_pop                          = [s] pop_data
+  [s] stub_behavior_script_1                         = [s] path_error
+  [s] bhv_cmd_hide                                   = [s] ps_shapeOFF
+  [s] bhv_cmd_disable_rendering                      = [s] ps_shapeDISABLE
+  [s] bhv_cmd_billboard                              = [s] ps_softspritemodeON
+  [s] bhv_cmd_set_model                              = [s] ps_changeshape
+  [s] bhv_cmd_spawn_child                            = [s] ps_makeshape
+  [s] bhv_cmd_spawn_obj                              = [s] ps_makeobj_child
+  [s] bhv_cmd_spawn_child_with_param                 = [s] ps_makeobj
+  [s] bhv_cmd_deactivate                             = [s] ps_killshape
+  [s] bhv_cmd_break                                  = [s] ps_end
+  [s] bhv_cmd_break_unused                           = [s] ps_exit
+  [s] bhv_cmd_call                                   = [s] ps_jsr
+  [s] bhv_cmd_return                                 = [s] ps_rts
+  [s] bhv_cmd_delay                                  = [s] ps_wait
+  [s] bhv_cmd_delay_var                              = [s] ps_wait_work
+  [s] bhv_cmd_goto                                   = [s] ps_jmp
+  [s] bhv_cmd_begin_repeat_unused                    = [s] ps_do_work
+  [s] bhv_cmd_begin_repeat                           = [s] ps_do
+  [s] bhv_cmd_end_repeat                             = [s] ps_next
+  [s] bhv_cmd_end_repeat_continue                    = [s] ps_next_imm
+  [s] bhv_cmd_begin_loop                             = [s] ps_while
+  [s] bhv_cmd_end_loop                               = [s] ps_loop
+  [s] bhv_cmd_call_native                            = [s] ps_program
+  [s] bhv_cmd_set_float                              = [s] ps_setf
+  [s] bhv_cmd_set_int                                = [s] ps_setd
+  [s] bhv_cmd_set_int_unused                         = [s] ps_setlong
+  [s] bhv_cmd_set_random_float                       = [s] ps_setf_random
+  [s] bhv_cmd_set_random_int                         = [s] ps_setd_random
+  [s] bhv_cmd_set_int_rand_rshift                    = [s] ps_setangle_random
+  [s] bhv_cmd_add_random_float                       = [s] ps_addf_random
+  [s] bhv_cmd_add_int_rand_rshift                    = [s] ps_addd_random
+  [s] bhv_cmd_add_float                              = [s] ps_addf
+  [s] bhv_cmd_add_int                                = [s] ps_addd
+  [s] bhv_cmd_or_int                                 = [s] ps_setbit
+  [s] bhv_cmd_bit_clear                              = [s] ps_clrbit
+  [s] bhv_cmd_load_animations                        = [s] ps_set_pointer
+  [s] bhv_cmd_animate                                = [s] ps_set_skelanime_number
+  [s] bhv_cmd_drop_to_floor                          = [s] ps_BGcheckYset
+  [s] bhv_cmd_nop_1                                  = [s] ps_dprintf
+  [s] bhv_cmd_nop_3                                  = [s] ps_dprintd
+  [s] bhv_cmd_nop_2                                  = [s] ps_dprintx
+  [s] bhv_cmd_sum_float                              = [s] ps_WADDf
+  [s] bhv_cmd_sum_int                                = [s] ps_WADDd
+  [s] bhv_cmd_set_hitbox                             = [s] ps_sethitbox
+  [s] bhv_cmd_set_hurtbox                            = [s] ps_setdamagebox
+  [s] bhv_cmd_set_hitbox_with_offset                 = [s] ps_sethitbox2
+  [s] bhv_cmd_nop_4                                  = [s] ps_softspriteanime
+  [s] bhv_cmd_begin                                  = [s] ps_initialize
+  [s] bhv_cmd_set_int_random_from_table              = [s] psl_setd_random
+  [s] bhv_cmd_load_collision_data                    = [s] ps_setshapeinfo
+  [s] bhv_cmd_set_home                               = [s] ps_save_nowpos
+  [s] bhv_cmd_set_interact_type                      = [s] ps_setobjname
+  [s] bhv_cmd_set_interact_subtype                   = [s] ps_setobjinfo
+  [s] bhv_cmd_scale                                  = [s] ps_set_scale
+  [s] bhv_cmd_set_obj_physics                        = [s] ps_setmovedata
+  [s] bhv_cmd_parent_bit_clear                       = [s] ps_mother_clrbit
+  [s] bhv_cmd_spawn_water_droplet                    = [s] ps_makeobj_initdata
+  [s] bhv_cmd_animate_texture                        = [s] ps_inc_frame
+  stub_behavior_script_2                             = InitPathSystem
+  cur_obj_update                                     = s_pathentry
