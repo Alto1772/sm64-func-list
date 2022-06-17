@@ -23,7 +23,6 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "common.h"
 
 #if IS_LITTLE_ENDIAN
 #define LEFIX_STRUCT_START union { struct {
