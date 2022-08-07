@@ -57,10 +57,11 @@
     func_sh_802f1d90                  = Nas_Alloc_Single_Stay
     func_sh_802f1de0                  = Nas_Alloc_Single_Emem
     unk_pools_init                    = Nas_Init_Single
-    func_sh_802f2158                  = (static) [__Nas_Alloc_Single_Auto_Inner]
-    func_sh_802F2320                  = (static) [__KillSwMember]
-    unk_pool2_alloc                   = (static) [__RomAddrSet]
-    func_sh_802f23ec                  = (static) [__Nas_Alloc_Single_Stay_Inner]
+    func_sh_802f1ec4                  = (static) [__Nas_Alloc_Single_Auto_Inner]
+    func_sh_802f2158                  = (static) [__KillSwMember]
+    func_sh_802F2320                  = (static) [__RomAddrSet]
+    unk_pool2_alloc                   = (static) [__Nas_Alloc_Single_Stay_Inner]
+    func_sh_802f23ec                  = (static) [Emem_KillSwMember]
 
 + load.c (size: 0x3490): [system.c]
  - [./System/superdma.m]
@@ -69,7 +70,7 @@
     init_sample_dma_buffers           = Nas_WaveDmaNew
  - [./System/bankctrl.m]
     patch_seq_file                    = (static) [Nas_BankHeaderInit]
-    func_sh_802f2e24                  = Nas_PreLoadBank
+    load_banks_immediate              = Nas_PreLoadBank
     preload_sequence                  = Nas_PreLoadSeq
     func_sh_802f2f38                  = (static) [__Nas_LoadVoice_Inner]
     func_sh_802f3024                  = Nas_LoadVoice
@@ -79,13 +80,13 @@
     func_sh_802f3288                  = Nas_FlushBank
     func_sh_802f3368                  = (static) [__Kill_Bank]
  - [./System/multidev.m]
-    func_sh_802F3410                  = Nas_StartMySeq
-    func_sh_802F3430                  = (static) [__Nas_StartSeq]
-    func_sh_802f3598                  = (static) [__Load_Seq]
-    func_sh_802F3564                  = (static) [__Load_Wave]
+    load_sequence                     = Nas_StartMySeq
+    load_sequence_internal            = (static) [__Nas_StartSeq]
+    func_sh_802f3564                  = (static) [__Load_Seq]
+    func_sh_802f3598                  = (static) [__Load_Wave]
     func_sh_802f3688                  = (static) [__Load_Ctrl]
     func_sh_802f3764                  = (static) [__Load_Bank]
-    func_sh_802f39a0                  = (static) [__Link_BankNum]
+    canonicalize_index                = (static) [__Link_BankNum]
     get_bank_or_seq_wrapper           = (static) [__Check_Cache]
     get_audio_file_header             = (static) [__Get_ArcHeader]
     patch_audio_bank                  = (static) [Nas_BankOfsToAddr_Inner]
@@ -96,11 +97,11 @@
     func_sh_802f3ed4                  = (static) [Nas_DiskLoad]
     func_sh_802f3ee8                  = EmemLoad
     func_802f3f08                     = (static) [__Load_Bank_BG]
-    func_802f41e4                     = Nas_BgDmaFrameWork
+    func_sh_802f41e4                  = Nas_BgDmaFrameWork
  - [./System/init.m]
     audio_init                        = Nas_InitAudio
  - [./System/loadplay.m]
-    func_802f47c8                     = VoiceLoad
+    func_sh_802f47c8                  = VoiceLoad
     func_sh_802f4978                  = (static) [__GetWaveTable]
     stub_sh_802f49dc                  = (static) [__WriteBackLps]
     func_sh_802f49e4                  = (static) [__SwapLoadLps]
@@ -114,7 +115,7 @@
     func_sh_802f50ec                  = (static) [__Nas_BgCopy]
     func_sh_802f517c                  = (static) [__Nas_BgDiskCopy]
  - [./System/wavetouch.m]
-    func_sh_802f51d4                  = (static) [__WaveTouch]
+    patch_sound                       = (static) [__WaveTouch]
     func_sh_802f5310                  = (static) [Nas_BankOfsToAddr]
     func_sh_802f573c                  = Nas_CheckBgWave
  - [./System/wavelist.m]
@@ -123,20 +124,20 @@
 
 + port_sh.c (size: 0x1020): [sub_sys.c]
  - [./Port/vframe.m]
-    func_sh_802f5a80                         = Nas_AudioMain
+    create_next_audio_frame_task             = Nas_AudioMain
  - [./Port/syscon.m]
-    func_sh_802f5fb8                         = (static) [Nap_AudioSysProcess]
-    func_sh_802f6288                         = (static) [__Nas_GroupFadeOut]
-    func_sh_802f62e0                         = (static) [__Nas_GroupFadeIn]
+    eu_process_audio_cmd                     = (static) [Nap_AudioSysProcess]
+    seq_player_fade_to_zero_volume           = (static) [__Nas_GroupFadeOut]
+    func_8031D690                            = (static) [__Nas_GroupFadeIn]
  - [./Port/audioport.m]
-    func_sh_802f6330                         = (static) [Nap_AudioPortInit]
+    port_eu_init_queues                      = (static) [Nap_AudioPortInit]
     func_802ad6f0                            = (static) [Nap_PortSet]
     func_802ad728                            = Nap_SetF32
     func_802ad74c                            = Nap_SetS32
     func_802ad770                            = Nap_SetS8
     func_sh_802F64C8                         = Nap_SendStart
     func_sh_802f6540                         = Nap_FlushPort
-    func_sh_802f6554                         = (static) [Nap_AudioPortProcess]
+    func_802ad7ec                            = (static) [Nap_AudioPortProcess]
     func_sh_802f6878                         = Nap_GetEvent
     func_sh_802f68e0                         = Nap_SeqToBank
     func_sh_802f6900                         = Nap_CheckSpecChange
@@ -145,7 +146,7 @@
     func_sh_802f6a08                         = Nap_ReadSubPort
     func_sh_802f6a6c                         = Nap_ReadGrpPort
  - [./Port/audioreset.m]
-    func_sh_802f6a9c                         = Nas_InitGAudio
+    port_eu_init                             = Nas_InitGAudio
 
 + playback.c (size: 0x1bf0): [channel.c]
  - [./Channel/drvsetuptbl.m]
@@ -295,9 +296,11 @@
     stop_background_music                    = Na_BgmFlagFree
     fadeout_background_music                 = Na_BgmFlagFadeOut
     drop_queued_background_music             = Na_AllBgmStackFlagFree
+    get_current_background_music             = Na_GetPlayingBgmFlag
     func_80320ED8                            = Na_Seq1PlayingCheck
     play_secondary_music                     = Na_AddSeq
     func_80321080                            = Na_SubSeq
+    func_803210D4                            = Na_SoundFadeOut
     play_course_clear                        = Na_ClearFanfare
     play_peachs_jingle                       = Na_NewDoorMessageBgm
     play_puzzle_jingle                       = Na_NazoClearBgm
