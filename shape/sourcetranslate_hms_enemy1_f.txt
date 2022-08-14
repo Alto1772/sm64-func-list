@@ -1,0 +1,3 @@
+  monty_mole_geo                                     = RCP_HmsEnemyindy
+  ukiki_geo                                          = RCP_HmsEnemymonky_F_run
+  fwoosh_geo                                         = RCP_HmsWindFace

@@ -1,0 +1,6 @@
+  mr_i_geo                                           = RCP_HmsBalloonBody
+  mr_i_iris_geo                                      = RCP_HmsBalloonEye
+  swoop_geo                                          = RCP_HmsEnemybat
+  snufit_geo                                         = RCP_HmsEnemymucho
+  dorrie_geo                                         = RCP_HmsEnemynessy
+  scuttlebug_geo                                     = RCP_HmsEnemywalker

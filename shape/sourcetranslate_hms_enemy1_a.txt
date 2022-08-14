@@ -1,0 +1,6 @@
+  yellow_sphere_geo                                  = RCP_HmsYellowBall
+  hoot_geo                                           = RCP_birdHierarchy
+  yoshi_egg_geo                                      = RCP_bird_eggHierarchy
+  thwomp_geo                                         = RCP_HmsDosun
+  bullet_bill_geo                                    = RCP_HmsEnemyKiller
+  heave_ho_geo                                       = RCP_HmsEnemyomurobo

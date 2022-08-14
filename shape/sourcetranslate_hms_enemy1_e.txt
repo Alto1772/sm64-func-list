@@ -1,0 +1,6 @@
+  klepto_geo                                         = RCP_HmsEnemyhagetaka_anim_fly
+  eyerok_geo_0002AC                                  = RCP_HmsEnemyhandman
+  eyerok_left_hand_geo                               = RCP_HmsEnemyhandman_Lhand
+  eyerok_right_hand_geo                              = RCP_HmsEnemyhandman_Rhand
+  pokey_head_geo                                     = RCP_HmsSanboHead
+  pokey_body_part_geo                                = RCP_HmsSanboBody

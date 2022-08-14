@@ -1,0 +1,3 @@
+  clam_shell_geo                                     = RCP_HmsEnemybig_shell
+  sushi_geo                                          = RCP_HmsEnemyShark
+  unagi_geo                                          = RCP_HmsEnemyubboo

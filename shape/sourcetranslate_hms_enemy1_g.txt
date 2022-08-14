@@ -1,0 +1,4 @@
+  spindrift_geo                                      = RCP_HmsEnemyfurafura
+  penguin_geo                                        = RCP_HmsEnemyping_base
+  mr_blizzard_hidden_geo                             = RCP_HmsEnemysnowman
+  mr_blizzard_geo                                    = RCP_HmsEnemysnowman_shadow

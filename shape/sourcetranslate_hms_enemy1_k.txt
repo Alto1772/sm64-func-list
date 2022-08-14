@@ -1,0 +1,5 @@
+  bubba_geo                                          = RCP_buku
+  wiggler_head_geo                                   = RCP_HmsEnemyhanahead
+  enemy_lakitu_geo                                   = RCP_HmsEnemyjygem
+  spiny_ball_geo                                     = RCP_HmsEnemypipo
+  spiny_geo                                          = RCP_HmsEnemytogezo

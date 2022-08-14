@@ -1,0 +1,4 @@
+  moneybag_geo_000000                                = RCP_HmsEnemykuramochi_surf
+  moneybag_geo_000078                                = RCP_HmsEnemykuramochi_xsurf
+  moneybag_geo                                       = RCP_HmsEnemykuramochi
+  [s] moneybag_unused_1                              = [s] kuramochi_base_dmmy50

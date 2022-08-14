@@ -1,0 +1,4 @@
+  springboard_top_geo                                = RCP_HmsBaneUe
+  springboard_spring_geo                             = RCP_HmsBaneNaka
+  springboard_bottom_geo                             = RCP_HmsBaneSita
+  cap_switch_geo                                     = RCP_HmsBikkuriButton

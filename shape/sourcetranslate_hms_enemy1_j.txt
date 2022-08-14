@@ -1,0 +1,7 @@
+  birds_geo                                          = RCP_HmsEnemyminibird
+  peach_geo_000098                                   = RCP_HmsEnemypeach_opa
+  peach_geo_000254                                   = RCP_HmsEnemypeach_xlu
+  peach_geo                                          = RCP_HmsEnemypeach
+  [s] peach_unused_1                                 = [s] yoshi_wait_dmmy10
+  yoshi_geo                                          = RCP_HmsEnemyyoshi
+  ? (0x668)                                          = [s] yoshi_wait_dmmy50

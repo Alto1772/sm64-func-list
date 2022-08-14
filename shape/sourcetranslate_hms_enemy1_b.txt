@@ -1,0 +1,3 @@
+  bully_geo                                          = RCP_HmsEnemyotos_basedata
+  bully_boss_geo                                     = RCP_HmsEnemyBigotos_basedata
+  blargg_geo                                         = RCP_HmsEnemyunbaba

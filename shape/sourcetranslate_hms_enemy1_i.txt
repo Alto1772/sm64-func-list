@@ -1,0 +1,7 @@
+  bookend_part_geo                                   = RCP_HmsEnemybook
+  bookend_geo                                        = RCP_HmsBookLight
+  haunted_chair_geo                                  = RCP_HmsEnemychair
+  small_key_geo                                      = RCP_HmsKey
+  mad_piano_geo                                      = RCP_HmsEnemypiano
+  boo_geo                                            = RCP_HmsEnemyTeresa
+  haunted_cage_geo                                   = RCP_HmsTeresaKago

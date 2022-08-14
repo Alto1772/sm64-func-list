@@ -1,0 +1,8 @@
+  lakitu_geo                                         = RCP_HmsEnemycamerajugem
+  toad_geo_000114                                    = RCP_HmsEnemykinopio_opa
+  toad_geo_00027C                                    = RCP_HmsEnemykinopio_xlu
+  toad_geo                                           = RCP_HmsEnemykinopio
+  [s] toad_unused_1                                  = [s] rabbit_basedata_dmmy10
+  mips_geo                                           = RCP_rabbitHierarchy
+  [s] mips_unused_1                                  = [s] rabbit_basedata_dmmy50
+  boo_castle_geo                                     = RCP_HmsEnemyTeresa2

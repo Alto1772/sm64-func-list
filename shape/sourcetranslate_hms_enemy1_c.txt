@@ -1,0 +1,3 @@
+  king_bobomb_geo                                    = RCP_HmsEnemybomking
+  water_bomb_geo                                     = RCP_HmsWaterBom
+  water_bomb_shadow_geo                              = RCP_HmsWaterBomShadow
